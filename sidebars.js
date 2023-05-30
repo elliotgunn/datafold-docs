@@ -33,12 +33,12 @@ const sidebars = {
           label: 'Team Cloud',
           link: {type: 'doc', id: 'deployment_testing/deployment_testing'},
           items: [
+            'deployment_testing/team_cloud/how_datafold_team_cloud_works',
             {
               type: 'category',
               label: 'Getting Started',
               link: {type: 'doc', id: 'deployment_testing/team_cloud/getting_started_for_customers'},
               items: [
-                'deployment_testing/team_cloud/getting_started_for_customers/dbt_in_ci',
                 {
                   type: 'category',
                   label: 'Data Sources',
