@@ -18,7 +18,7 @@ Put simply, Continuous Integration (or CI) is a process for building and testing
 
 ## Getting Started
 :::info
-To get started, you'll need an [API Key](/reference/cloud#create-an-api-key) and the [CI config ID](/deployment_testing/getting_started_for_customers/dbt/dbt_core#next-steps) fr your dbt Core integration.
+To get started, you'll need an [API Key](/reference/cloud#create-an-api-key) and the [CI config ID](/deployment_testing/getting_started_for_customers/dbt/dbt_core#next-steps) for your dbt Core integration.
 :::
 
 To add Datafold to your CI, you'll need to follow these basic steps:
