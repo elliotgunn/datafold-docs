@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: Hightouch
 description: ""
-pagination_prev: deployment_testing/getting_started_for_customers/dbt
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/dbt
 pagination_next: guides
 ---
 ## Configuration

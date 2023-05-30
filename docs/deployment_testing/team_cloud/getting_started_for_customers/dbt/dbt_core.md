@@ -2,8 +2,8 @@
 sidebar_position: 1
 title: dbt Core
 description: ""
-pagination_prev: deployment_testing/getting_started_for_customers/source_control
-pagination_next: deployment_testing/getting_started_for_customers/data_apps
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/source_control
+pagination_next: deployment_testing/team_cloud/getting_started_for_customers/data_apps
 ---
 ## Configuration
 Complete the configuration by specifying the following fields:

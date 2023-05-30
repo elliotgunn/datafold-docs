@@ -28,4 +28,4 @@ Once the application is created, you should be returned to the Datafold settings
 
 ## Configure GitHub in Datafold
 
-If you see this screen with all the details, you've successfully created a GitHub App! Now that the app is created, you have to install it using the [GitHub integration setup](../../deployment_testing/getting_started_for_customers/source_control/github).
+If you see this screen with all the details, you've successfully created a GitHub App! Now that the app is created, you have to install it using the [GitHub integration setup](../../deployment_testing/team_cloud/getting_started_for_customers/source_control/github).

@@ -2,8 +2,8 @@
 sidebar_position: 2
 title: dbt Cloud
 description: ""
-pagination_prev: deployment_testing/getting_started_for_customers/source_control
-pagination_next: deployment_testing/getting_started_for_customers/data_apps
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/source_control
+pagination_next: deployment_testing/team_cloud/getting_started_for_customers/data_apps
 ---
 :::info
 You will need a dbt **Team** account or higher to access the dbt Cloud API that Datafold uses to connect the accounts.

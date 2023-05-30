@@ -2,8 +2,8 @@
 sidebar_position: 1
 title: GitHub
 description: ""
-pagination_prev: deployment_testing/getting_started_for_customers/source_control
-pagination_next: deployment_testing/getting_started_for_customers/dbt
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/source_control
+pagination_next: deployment_testing/team_cloud/getting_started_for_customers/dbt
 ---
 <!-- :::caution
 If you are on an VPC deployment, you should first create a GitHub App for the integration. See [GitHub integration for Datafold VPC](enterprise_accounts/vpc_deployments/github_vpc) before proceeding with this tutorial.

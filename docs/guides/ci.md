@@ -18,7 +18,7 @@ Put simply, Continuous Integration (or CI) is a process for building and testing
 
 ## Getting Started
 :::info
-To get started, you'll need an [API Key](/reference/cloud#create-an-api-key) and the [CI config ID](/deployment_testing/getting_started_for_customers/dbt/dbt_core#next-steps) for your dbt Core integration.
+To get started, you'll need an [API Key](/reference/cloud#create-an-api-key) and the [CI config ID](/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core#next-steps) for your dbt Core integration.
 :::
 
 To add Datafold to your CI, you'll need to follow these basic steps:
@@ -33,7 +33,7 @@ Implementation details differ depending on the tool you're using for CI:
 - [GitHub Actions](/guides/ci/github_actions)
 - [GitLab](/guides/ci/gitlab_ci)
 
-Alternatively, Datafold can also be implemented in CI without any code configuration using [dbt Cloud](../deployment_testing/getting_started_for_customers/dbt/dbt_cloud.md).
+Alternatively, Datafold can also be implemented in CI without any code configuration using [dbt Cloud](../deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud.md).
 
 <!-- Interested in setting up CI or optimizing your current setup? Check out our guided walkthroughs.
 * [dbt Cloud](ci_guides/dbt_cloud.md)

@@ -143,27 +143,27 @@ const config = {
               from: '/quickstart_guide',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_sources',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources',
               from: '/integrations/data_warehouses/dw_overview',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_sources/snowflake',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/snowflake',
               from: '/integrations/data_warehouses/content/snowflake',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_sources/bigquery',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/bigquery',
               from: '/integrations/data_warehouses/content/bigquery',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_sources/redshift',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/redshift',
               from: '/integrations/data_warehouses/content/redshift',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_sources/databricks',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/databricks',
               from: '/integrations/data_warehouses/content/databricks',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_sources/postgres',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/postgres',
               from: [
                 '/category/postgresql', 
                 '/integrations/data_warehouses/content/postgres/', 
@@ -171,22 +171,22 @@ const config = {
               ],
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/source_control/GitHub',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitHub',
               from: '/integrations/git/github',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/source_control/GitLab',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitLab',
               from: '/integrations/git/gitlab',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/dbt/dbt_cloud',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud',
               from: [
                 '/integrations/orchestration/dbt_cloud/prerequisites', 
                 '/integrations/orchestration/dbt_cloud/configuration'
               ],
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/dbt/dbt_core',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core',
               from: [
                 '/integrations/orchestration/dbt_core/prerequisites', 
                 '/integrations/orchestration/dbt_core/connection', 
@@ -209,11 +209,11 @@ const config = {
               ],
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_apps/hightouch',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_apps/hightouch',
               from: '/integrations/data_apps/hightouch',
             },
             {
-              to: '/deployment_testing/getting_started_for_customers/data_apps/mode',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_apps/mode',
               from: '/integrations/data_apps/mode',
             },
             {
