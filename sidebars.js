@@ -38,6 +38,7 @@ const sidebars = {
               label: 'Getting Started',
               link: {type: 'doc', id: 'deployment_testing/team_cloud/getting_started_for_customers'},
               items: [
+                'deployment_testing/team_cloud/getting_started_for_customers/dbt_in_ci',
                 {
                   type: 'category',
                   label: 'Data Sources',
