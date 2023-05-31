@@ -9,7 +9,7 @@ hide_table_of_contents: true
 
 A core component of Datafold Cloud is the integration of Datafold into your CI process. This is how Datafold creates Data Diffs for all dbt model code changes, catching issues before they make it into production.
 
-## Datafold compares two versions of your dbt data
+## dbt in Production and CI
 
 Datafold in CI automatically compares production data to PR/MR data. Data Diff results are written directly to GitHub/GitLab and stored in the Datafold Cloud application.
 
