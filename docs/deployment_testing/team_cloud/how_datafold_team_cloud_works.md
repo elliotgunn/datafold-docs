@@ -23,7 +23,7 @@ When you set up dbt in CI, dbt builds a version of the data in your warehouse th
 
 :::info
 
-Datafold requires configuration of dbt in your CI pipeline in order to run Data Diffs in CI.
+In order to run Data Diffs in CI, you will need to add dbt to your CI process, either using dbt Cloud or dbt Core.
 
 :::
 
