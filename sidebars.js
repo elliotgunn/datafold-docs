@@ -33,6 +33,7 @@ const sidebars = {
           label: 'Team Cloud',
           link: {type: 'doc', id: 'deployment_testing/deployment_testing'},
           items: [
+            'deployment_testing/team_cloud/how_datafold_team_cloud_works',
             {
               type: 'category',
               label: 'Getting Started',

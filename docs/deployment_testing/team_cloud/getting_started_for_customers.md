@@ -2,7 +2,7 @@
 id: getting_started_for_customers
 title: Getting Started with Deployment Testing
 sidebar_label: Getting Started
-pagination_next: deployment_testing/team_cloud/getting_started_for_customers/data_sources
+pagination_next: deployment_testing/team_cloud/how_datafold_team_cloud_works
 hide_table_of_contents: true
 ---
 
