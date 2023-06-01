@@ -11,15 +11,15 @@ A core component of Datafold Cloud is the integration of Datafold into your CI p
 
 For this to be possible, a step building dbt staging data needs to be added to your Continuous Integration (CI) process in GitHub or GitLab.
 
-:::info Prerequisite
-
-In order to have Datafold in CI, you need to first have dbt in CI. This can be configured using [dbt Cloud](https://www.datafold.com/blog/slim-ci-the-cost-effective-solution-for-successful-deployments-in-dbt-cloud) or [dbt Core](https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide).
-
-:::
-
 :::tip What is Staging Data?
 
 **Staging data** is created using the version of the dbt code in your PR/MR branch.
+
+:::
+
+:::info Prerequisite: dbt in CI
+
+In order to have Datafold in CI, you need to first add a dbt step to CI. This can be done using [dbt Cloud](https://www.datafold.com/blog/slim-ci-the-cost-effective-solution-for-successful-deployments-in-dbt-cloud) or [dbt Core](https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide).
 
 :::
 
