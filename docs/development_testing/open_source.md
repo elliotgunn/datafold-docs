@@ -202,3 +202,5 @@ data-diff --dbt --select <models>
 #### Handling very large dbt models
 
 `data-diff` will reach performance limitations on large dbt models. One strategy to reduce run time in this scenario is to add a [filter](/guides/dbt_advanced_configs#filter-tables), which is essentially a `where` clause that is configured in that model's yml. This defines which rows will be diffed.
+
+Another option is to limit the number of columns via the [Include / Exclude Columns](/guides/dbt_advanced_configs/#include--exclude-columns) configuration.
