@@ -2,7 +2,7 @@
 id: sso
 title: SSO
 pagination_prev: enterprise_accounts/vpc_deployments
-pagination_next: enterprise_accounts/custom_integrations/catalog-lineage
+pagination_next: enterprise_accounts/catalog-lineage
 ---
 Set up Single Sign-On with one of the following options:
 
