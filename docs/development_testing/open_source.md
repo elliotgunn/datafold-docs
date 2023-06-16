@@ -112,6 +112,20 @@ These docs reflect the latest version of data-diff listed [here](https://github.
 Run `pip install data-diff -U` to update!
 :::
 
+**There are two options for configuring data-diff --dbt:**
+1. Add variables to the dbt_project.yml
+2. Specify a production manifest.json using `--state`
+
+<Tabs
+  defaultValue="dbt_project"
+  values={[
+    {label: '1. dbt_project.yml', value: 'dbt_project'},
+    {label: '2. --state', value: 'state'},
+  ]}>
+
+  <TabItem value="dbt_project">
+
+
 Add the following variables to **dbt_project.yml**:
 
   ```yaml
@@ -171,6 +185,18 @@ Add the following variables to **dbt_project.yml**:
   </code>
 </details>
 
+</TabItem>
+  <TabItem value="state">
+
+```bash
+  dbt compile -t prod # compile a manifest.json using the "prod" target
+  mv target/manifest.json prod_manifest.json # move the file up a directory and rename it to prod_manifest.json
+  dbt compile # compile a manifest.json using a non "prod" target
+  data-diff --dbt --state prod_manifest.json --select simple_example # specify the prod manifest using --state
+```
+
+  </TabItem>
+</Tabs>
 Then, identify primary keys in each model by adding tags, metadata, or uniqueness tests. [Check out this page](/guides/dbt_advanced_configs#tag-primary-keys) for more details on configuration.
 
 ### Run with --dbt
