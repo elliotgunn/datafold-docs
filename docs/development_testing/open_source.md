@@ -197,6 +197,7 @@ Add the following variables to **dbt_project.yml**:
 
   </TabItem>
 </Tabs>
+
 Then, identify primary keys in each model by adding tags, metadata, or uniqueness tests. [Check out this page](/guides/dbt_advanced_configs#tag-primary-keys) for more details on configuration.
 
 ### Run with --dbt
