@@ -27,11 +27,21 @@ To add Datafold to your CI, you'll need to follow these basic steps:
 * Add a Datafold command to your production CI process to upload dbt artifacts representing the state of the project _in the latest commit of the production branch_.
 * In both the PR CI process and the production CI process, these Datafold commands should be added _after_ the `dbt run` or `dbt build` step.
 
+## Optional CI Configurations and Strategies
+
+### Including `datafold-skip-ci` in the git commit message
+
+* If the last commit contains the string `datafold-skip-ci`, the Datafold step in CI will be skipped.
+
+## CI Implementation Tools
+
 Implementation details differ depending on the tool you're using for CI:
 
 - [CircleCI](/guides/ci/circleci)
 - [GitHub Actions](/guides/ci/github_actions)
 - [GitLab](/guides/ci/gitlab_ci)
+
+## CI using dbt Cloud
 
 Alternatively, Datafold can also be implemented in CI without any code configuration using [dbt Cloud](../deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud.md).
 
