@@ -7,30 +7,34 @@ pagination_next: guides/cd
 ---
 ## Basic Config
 
+dbt Core users can configure CI steps in GitHub Actions to:
+* Build production and PR versions of dbt data
+* Submit dbt `manifest.json` files representing both prodction and PR data to Datafold
+
 ### Production Job
 
-This job runs in two scenarios, defined in the `on:` section:
-##### Deploy Production
+The `dbt prod` job runs in two scenarios: Production Deployments and Scheduled Runs.
+
+##### Production Deployments
 * **When?**
     * New commits are pushed to the main branch
 * **Why?** 
     * Deploy model changes into the data warehouse
 
-##### Scheduled
+##### Scheduled Runs
   * **When?**
-    * Every day at 2:00; for cron help - check out [crontab.guru](https://crontab.guru/)
+    * Every day at 2AM (for cron help, check out [crontab.guru](https://crontab.guru/))
   * **Why?**
     * Data warehouse daily refresh with new data
 
 ```yml
 name: dbt prod
 
-# Run this job on a push to the main branch or at 2AM
 on:
-  push:
+  push: # Run the job on push to the main branch
     branches:
       - main
-  schedule: # Run the pipeline at 2AM
+  schedule: # Run the job daily at 2AM
     - cron: '0 2 * * *'
 
 jobs:
@@ -43,10 +47,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-        # Install Python 3.8, this is required to run dbt
+        # Install Python 3.9 (required to run dbt)
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
 
         # Install Python packages defined in requirements.txt (dbt and dependencies)
       - name: install requirements
@@ -66,13 +70,14 @@ jobs:
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
           SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
-          SNOWFLAKE_SCHEMA: "${{ 'ANALYTICS' }}"
+          SNOWFLAKE_SCHEMA: "${{ '<YOUR_PROD_SCHEMA>' }}" # Replace `<YOUR_PROD_SCHEMA>` with the name of your production schema.
 
-        # Use the Datafold sdk to create a diff and write results to the PR
+        # Use the Datafold sdk to create a diff and write results to the PR.
       - name: submit artifacts to datafold
         run: |
           set -ex
-          datafold dbt upload --ci-config-id 999 --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
+          datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
+        # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
         env:
           DATAFOLD_APIKEY: ${{ secrets.DATAFOLD_APIKEY }}
           DATAFOLD_RUN_TYPE: "${{ 'production' }}"
@@ -80,9 +85,9 @@ jobs:
 ```
 
 ### Pull Request Job
-This job runs in one scenario, again defined in the `on:` section:
+This job runs in the following scenario:
 * **When?**
-  * New commits are pushed a branch *other than* main
+  * New commits are pushed to a branch *other than* main
 * **Why?**
   * To understand, test, and QA changes before deploying to the data warehouse
 
@@ -106,10 +111,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-        # Install Python 3.8, this is required to run dbt
+        # Install Python 3.9 (required to run dbt)
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
 
         # Install Python packages defined in requirements.txt (dbt and dependencies)
       - name: install requirements
@@ -140,7 +145,8 @@ jobs:
       - name: submit artifacts to datafold
         run: |
           set -ex
-          datafold dbt upload --ci-config-id 999 --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
+          datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
+        # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
         env:
           DATAFOLD_APIKEY: ${{ secrets.DATAFOLD_APIKEY }}
           DATAFOLD_RUN_TYPE: "${{ 'pull_request' }}"
@@ -152,7 +158,7 @@ jobs:
 ### Advanced Pull Request Job
 This is similar to the [pull request job](github_actions.md#pull-request-job) above, with some added features:
 * [Slim CI](https://docs.getdbt.com/docs/dbt-cloud/using-dbt-cloud/cloud-enabling-continuous-integration#configuring-a-dbt-cloud-ci-job)
-    * Speeds up CI by running only your changes
+    * Speeds up CI by running only modified models and downstreams
     * Quick primer on [state:modified](https://docs.getdbt.com/reference/node-selection/methods#the-state-method) syntax:
         * `state:modified+` run the modified model(s) and all downstream models
         * `state:+modified` run the modified model(s) and all upstream models
@@ -183,10 +189,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-        # Install Python 3.8, this is required to run dbt
+        # Install Python 3.9, this is required to run dbt
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
 
         # Install Python packages defined in requirements.txt (dbt and dependencies)
       - name: install requirements
@@ -213,10 +219,10 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-west-2
+          AWS_REGION: ${{ secrets.AWS_REGION }}
 
-        # Run and test modified dbt models and models downstream of them
-        # Otherwise defer to production for unmodified models
+        # Run and test modified dbt models and downstreams. Production data will depended on for any models that are upstream 
+        # of any modified code. This process, called "deferral", removes the need to build every single model in the project in the staging job.
       - name: dbt build
         run: dbt build --select state:modified+ --defer --state ./ --exclude config.materialized:snapshot --profiles-dir ./
         env:
@@ -230,7 +236,8 @@ jobs:
       - name: submit artifacts to datafold
         run: |
           set -ex
-          datafold dbt upload --ci-config-id 999 --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
+          datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
+        # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
         env:
           DATAFOLD_APIKEY: ${{ secrets.DATAFOLD_APIKEY }}
           DATAFOLD_RUN_TYPE: "${{ 'pull_request' }}"
