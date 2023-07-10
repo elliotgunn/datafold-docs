@@ -90,7 +90,9 @@ models:
         datadiff:
           filter: "user_id > 2350"
           # or
-          filter: "source_timestamp >= current_date() - 7
+          filter: "source_timestamp >= current_date() - 7"
+          # or
+          filter: "created_at >= '2021-01-01'"
 ```
 
 ### Include / Exclude Columns
