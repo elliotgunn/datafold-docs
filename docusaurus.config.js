@@ -290,6 +290,24 @@ const config = {
                 '/os_diff/how_to_use/options'
               ],
             },
+            {
+              to: '/reference/cloud/rest_api',
+              from: [
+                '/api/api-overview'
+              ],
+            },
+            {
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud',
+              from: [
+                '/guides/ci_guides/dbt_cloud'
+              ],
+            },
+            {
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core',
+              from: [
+                '/guides/ci_guides/dbt_core'
+              ],
+            },
           ],
         },
       ],
