@@ -2,8 +2,8 @@
 sidebar_position: 3
 id: gitlab_ci
 title: GitLab CI
-pagination_prev: guides/ci
-pagination_next: guides/cd
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/dbt
+pagination_next: deployment_testing/team_cloud/getting_started_for_customers/data_apps
 ---
 ## Basic Config
 

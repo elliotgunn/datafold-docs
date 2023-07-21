@@ -264,7 +264,7 @@ const config = {
               from: '/api/content/graphql',
             },
             {
-              to: '/guides/ci',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core',
               from: '/guides/ci/cd',
             },
             {

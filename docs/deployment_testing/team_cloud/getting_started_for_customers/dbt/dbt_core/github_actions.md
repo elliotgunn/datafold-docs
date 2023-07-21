@@ -2,8 +2,8 @@
 sidebar_position: 2
 id: github_actions
 title: GitHub Actions
-pagination_prev: guides/ci
-pagination_next: guides/cd
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/dbt
+pagination_next: deployment_testing/team_cloud/getting_started_for_customers/data_apps
 ---
 ## Basic Config
 

@@ -2,7 +2,6 @@
 id: cd
 title: Continuous Deployment
 description: ""
-pagination_prev: guides/ci
 ---
 ## Merge Trigger Production Job
 To set up continuous deployment of your data with dbt Cloud, we recommend creating a job that triggers a dbt Cloud production run when changes are pushed to main.
@@ -15,7 +14,7 @@ Then, select this job as the "Job that creates dbt artifacts" when setting up yo
     * By default, dbt Cloud runs the production job on a schedule, not on merges.
 
 
-Example [Github Action](/guides/ci/github_actions):
+Example [Github Action](/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core/github_actions.md):
 ```yml
 name: Trigger dbt Cloud
 
