@@ -3,6 +3,7 @@ id: catalog-lineage
 title: Column-level Lineage
 pagination_prev: enterprise_accounts/sso
 pagination_next: enterprise_accounts/custom_integrations/github_vpc
+hide_table_of_contents: true
 ---
 ## Lineage
 ![](../../static/img/catalog_landing.png)
