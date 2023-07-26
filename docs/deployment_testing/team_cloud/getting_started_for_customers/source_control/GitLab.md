@@ -12,4 +12,6 @@ When configuring your token, select the **Maintainer** role and select the **api
 
 ![](/img/gitlab_access_token.png)
 
+**Project Name** is your Gitlab project URL after `gitlab.com/`. For example, if your Gitlab project URL is `https://gitlab.com/datafold/dbt/`, your Project Name is `datafold/dbt/`
+
 Finally, navigate back to Datafold and enter the **Project Token** and the name of your **Project** before hitting **Save**.
