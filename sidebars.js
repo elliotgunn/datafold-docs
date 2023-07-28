@@ -148,6 +148,7 @@ const sidebars = {
         {type:'doc', id: 'guides/dbt_advanced_configs'},
         {type: 'doc', id: 'guides/cd'},
         {type: 'doc', id: 'guides/slim_diff'},
+        {type: 'doc', id: 'guides/vs_code_extension'},
       ]
     },
     {
