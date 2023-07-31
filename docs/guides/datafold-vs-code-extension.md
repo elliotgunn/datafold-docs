@@ -1,16 +1,16 @@
 ---
-id: vs_code_extension
-title: VS Code Extension
+id: datafold-vs-code-extension
+title: Datafold VS Code Extension
 sidebar_label: VS Code Extension
 ---
 
-With the Datafold VS Code Extension, you can quickly run and diff any dbt models, view and interact with diff results in a clean GUI, and automatically diff models that change all within your VS Code IDE.
+With the [Datafold VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Datafold.datafold-vscode), you can quickly run and diff any dbt models, view and interact with diff results in a clean GUI, and automatically diff models that change all within your VS Code IDE.
 
 ![](../../static/img/vs_code_datafold_gif.gif)
 
 ## Installation
 
-1. Install the Extension using the VS Code Extension tab.
+1. Install the [Datafold VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Datafold.datafold-vscode) using the VS Code Extension tab.
 
 ![](../../static/img/vs_code_install.png)
 
