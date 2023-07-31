@@ -46,8 +46,6 @@ Example request body:
     ],
     "query1": null,
     "query2": null,
-    "materialize_dataset1": false,
-    "materialize_dataset2": false,
     "materialization_destination_id": null,
     "materialize_without_sampling": false,
     "pk_columns": [
@@ -96,8 +94,6 @@ The response will contain all data from the request with missing values filled i
     ],
     "query1": null,
     "query2": null,
-    "materialize_dataset1": false,
-    "materialize_dataset2": false,
     "materialization_destination_id": null,
     "materialize_without_sampling": false,
     "pk_columns": [
@@ -158,8 +154,6 @@ curl --location --request POST 'https://app.datafold.com/api/v1/datadiffs' \
   ],
   "query1": null,
   "query2": null,
-  "materialize_dataset1": false,
-  "materialize_dataset2": false,
   "materialization_destination_id": null,
   "materialize_without_sampling": false,
   "pk_columns": [
@@ -208,8 +202,6 @@ payload = json.dumps({
   ],
   "query1": None,
   "query2": None,
-  "materialize_dataset1": False,
-  "materialize_dataset2": False,
   "materialization_destination_id": None,
   "materialize_without_sampling": False,
   "pk_columns": [
