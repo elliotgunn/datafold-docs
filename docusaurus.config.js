@@ -276,6 +276,10 @@ const config = {
               from: '/os_diff/dbt_integration',
             },
             {
+              to: '/guides/datafold-vs-code-extension',
+              from: '/guides/vs_code_extension',
+            },
+            {
               to: '/guides/os_data_diff',
               from: [
                 '/os_diff/how_to_install', 
