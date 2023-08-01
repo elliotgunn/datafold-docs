@@ -45,12 +45,6 @@ vars:
     prod_schema: YOUR_SCHEMA
 ```
 
-:::info
-
-The Datafold VS Code Extension is currently only compatible with dbt versions <1.6.
-
-:::
-
 ## Getting started
 
 ### Running your first Data Diff
