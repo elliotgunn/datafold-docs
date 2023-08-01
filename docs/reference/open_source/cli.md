@@ -243,16 +243,3 @@ CLI switches have the final say, and will override the settings defined by the c
 Exclude the TOML file in your `.gitignore`, especially if it includes sensitive information such as passwords.
 :::
 
-<!-- ## Option Syntax
-- **CLI Switch**: Use this syntax when writing a [command line input](./how_to_use_with_command_line.md).
-  ```shell
-  data-diff DB1_URI TABLE1_NAME DB2_URI TABLE2_NAME --debug --v -k order_id
-  ```
-
-- **Config Key**: Use this syntax when using a [TOML configuration file](./how_to_use_with_toml.md) or [using data-diff with Python](./how_to_use_with_python.md).
-  ```
-  # Specify the default run parameters
-  [run.default]
-    verbose = true
-    stats = true
-  ``` -->
