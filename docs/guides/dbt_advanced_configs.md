@@ -155,7 +155,7 @@ models:
 If your PR includes updates to column names, you can specify these updates in your git commit message using the following syntax. That way, Datafold will understand that the 
 renamed column should be compared to the column in the production data with the original name.
 
-By specifying column remapping in the commit messaeg, when you rename a column, instead of thinking one column has been removed, and another has been added ...
+By specifying column remapping in the commit message, when you rename a column, instead of thinking one column has been removed, and another has been added ... 
 
 ![](../../static/img/column_remapping_schema_difference_collapsed.png)
 ![](../../static/img/column_remapping_schema_difference.png)
@@ -164,8 +164,9 @@ By specifying column remapping in the commit messaeg, when you rename a column, 
 
 ![](../../static/img/column_remapping_no_schema_diff.png)
 
-Any of the following syntax styles can be added as a single line to a commit message to
-instruct Datafold in CI to remap a column from `oldcol` to `newcol`.
+Any of the following syntax styles can be added as a single 
+line to a commit message to instruct Datafold in CI to remap a column from `oldcol` to `newcol`.
+
 
 ```
 # All models/tables in the PR:
