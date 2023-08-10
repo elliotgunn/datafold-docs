@@ -127,6 +127,20 @@ GRANT SELECT ON FUTURE VIEWS IN DATABASE <database_name> TO ROLE DATAFOLDROLE;
 GRANT SELECT ON ALL MATERIALIZED VIEWS IN DATABASE <database_name> TO ROLE DATAFOLDROLE;
 GRANT SELECT ON FUTURE MATERIALIZED VIEWS IN DATABASE <database_name> TO ROLE DATAFOLDROLE;
 ```
+
+### A note on future grants
+
+The above database grants will be insufficient if any future grants have been defined at the schema level, because [schema-level grants will override database-level grants](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#considerations). In that case, you will need to execute future grants for every existing _schema_ that Datafold will operate on.
+
+```sql
+GRANT SELECT ON FUTURE TABLES IN SCHEMA <database_name>.<schema_name> TO ROLE DATAFOLDROLE;
+GRANT SELECT ON FUTURE VIEWS IN SCHEMA <database_name>.<schema_name> TO ROLE DATAFOLDROLE;
+GRANT SELECT ON FUTURE MATERIALIZED VIEWS IN SCHEMA <database_name>.<schema_name> TO ROLE DATAFOLDROLE;
+GRANT SELECT ON ALL TABLES IN SCHEMA <database_name>.<schema_name> TO ROLE DATAFOLDROLE;
+GRANT SELECT ON ALL VIEWS IN SCHEMA <database_name>.<schema_name> TO ROLE DATAFOLDROLE;
+GRANT SELECT ON ALL MATERIALIZED VIEWS IN SCHEMA <database_name>.<schema_name> TO ROLE DATAFOLDROLE;
+```
+
 ### Configure in Datafold
 | Field Name      | Description |
 | ----------- | ----------- |
