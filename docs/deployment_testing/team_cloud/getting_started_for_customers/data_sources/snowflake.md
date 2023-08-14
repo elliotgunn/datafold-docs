@@ -155,7 +155,7 @@ SHOW GRANTS ON WAREHOUSE <warehouse_name>;
 
 ```sql
 -- Validate schema permissions for the DATAFOLDROLE
-SHOW GRANTS ON DATABASE <database_name>.DATAFOLD_TMP;
+SHOW GRANTS ON SCHEMA <database_name>.DATAFOLD_TMP;
 ```
 
 ![grants_on_schema](/img/grants_on_schema.png)
