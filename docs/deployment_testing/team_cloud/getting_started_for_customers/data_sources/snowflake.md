@@ -128,6 +128,38 @@ GRANT SELECT ON ALL MATERIALIZED VIEWS IN DATABASE <database_name> TO ROLE DATAF
 GRANT SELECT ON FUTURE MATERIALIZED VIEWS IN DATABASE <database_name> TO ROLE DATAFOLDROLE;
 ```
 
+### Validate Snowflake Grants for Datafold
+
+Run these queries to validate that the grants have been set up correctly:
+> Note: More results may be returned than shown in the screenshots below if you have granted access to multiple roles/users
+
+Example Placeholders:
+- `<database_name>` = `DEV`
+- `<warehouse_name>` = `DEMO`
+
+
+```sql
+-- Validate database usage for the DATAFOLDROLE
+SHOW GRANTS ON DATABASE <database_name>;
+```
+
+![grants_on_database](/img/grants_on_database.png)
+
+```sql
+-- Validate warehouse usage for the DATAFOLDROLE
+SHOW GRANTS ON WAREHOUSE <warehouse_name>;
+```
+
+![grants_on_database](/img/grants_on_warehouse.png)
+
+
+```sql
+-- Validate schema permissions for the DATAFOLDROLE
+SHOW GRANTS ON DATABASE <database_name>.DATAFOLD_TMP;
+```
+
+![grants_on_schema](/img/grants_on_schema.png)
+
 ### A note on future grants
 
 The above database grants will be insufficient if any future grants have been defined at the schema level, because [schema-level grants will override database-level grants](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#considerations). In that case, you will need to execute future grants for every existing _schema_ that Datafold will operate on.
