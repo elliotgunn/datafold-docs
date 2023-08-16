@@ -112,24 +112,11 @@ These docs reflect the latest version of data-diff listed [here](https://github.
 Run `pip install data-diff -U` to update!
 :::
 
-**There are two options for configuring data-diff --dbt:**
-1. Add variables to the dbt_project.yml
-2. Specify a production manifest.json using `--state`
-
-<Tabs
-  defaultValue="dbt_project"
-  values={[
-    {label: '1. dbt_project.yml', value: 'dbt_project'},
-    {label: '2. --state', value: 'state'},
-  ]}>
-
-  <TabItem value="dbt_project">
-
-
-Add the following variables to **dbt_project.yml**:
+**There are two options for configuring data-diff --dbt.**
+#### Option 1: Add variables to the `dbt_project.yml`
 
   ```yaml
-  #dbt_project.yml
+  # dbt_project.yml
   vars:
     data_diff:
       prod_database: my_default_database # default database for the prod target
@@ -185,22 +172,25 @@ Add the following variables to **dbt_project.yml**:
   </code>
 </details>
 
-</TabItem>
-  <TabItem value="state">
+#### Option 2: Specify a production `manifest.json` using `--state`
+
+**Using the `--state` option is highly recommended for dbt projects with multiple target database and schema configurations. For example, if you customized the [`generate_schema_name`](https://docs.getdbt.com/docs/build/custom-schemas#understanding-custom-schemas) macro, this is the best option for you.**
+
+> Note: `dbt ls` is preferred over `dbt compile` as it runs faster and data diffing does not require fully compiled models to work.
 
 ```bash
-  dbt compile -t prod # compile a manifest.json using the "prod" target
-  mv target/manifest.json prod_manifest.json # move the file up a directory and rename it to prod_manifest.json
-  dbt compile # compile a manifest.json using a non "prod" target
-  data-diff --dbt --state prod_manifest.json --select simple_example # specify the prod manifest using --state
+dbt ls -t prod # compile a manifest.json using the "prod" target
+mv target/manifest.json prod_manifest.json # move the file up a directory and rename it to prod_manifest.json
+dbt run # run your entire dbt project or only a subset of models with `dbt run --select <model_name>`
+data-diff --dbt --state prod_manifest.json # run data-diff to compare your development results to the production database/schema results in the prod manifest
 ```
 
-  </TabItem>
-</Tabs>
 
 Then, identify primary keys in each model by adding tags, metadata, or uniqueness tests. [Check out this page](/guides/dbt_advanced_configs#tag-primary-keys) for more details on configuration.
 
 ### Run with --dbt
+
+> Note: This is for Option 1 only. If you are using Option 2, you can skip this step.
 
 Run your dbt model with `data-diff --dbt` to see the impact that your model change had on the data.
     
