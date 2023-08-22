@@ -79,7 +79,7 @@ jobs:
           datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
         # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
         env:
-          DATAFOLD_APIKEY: ${{ secrets.DATAFOLD_APIKEY }}
+          DATAFOLD_API_KEY: ${{ secrets.DATAFOLD_API_KEY }}
           DATAFOLD_RUN_TYPE: "${{ 'production' }}"
           GIT_SHA: "${{ github.ref == 'refs/heads/master' && github.sha }}"
 ```
@@ -148,7 +148,7 @@ jobs:
           datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
         # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
         env:
-          DATAFOLD_APIKEY: ${{ secrets.DATAFOLD_APIKEY }}
+          DATAFOLD_API_KEY: ${{ secrets.DATAFOLD_API_KEY }}
           DATAFOLD_RUN_TYPE: "${{ 'pull_request' }}"
           GIT_SHA: "${{ github.event.pull_request.head.sha }}"
 ```
@@ -239,7 +239,7 @@ jobs:
           datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
         # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
         env:
-          DATAFOLD_APIKEY: ${{ secrets.DATAFOLD_APIKEY }}
+          DATAFOLD_API_KEY: ${{ secrets.DATAFOLD_API_KEY }}
           DATAFOLD_RUN_TYPE: "${{ 'pull_request' }}"
           GIT_SHA: "${{ github.event.pull_request.head.sha }}"
 

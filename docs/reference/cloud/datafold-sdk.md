@@ -52,7 +52,7 @@ The following arguments need to be specified when submitting dbt artifacts via t
 #### CLI
 
 ```bash
-export DATAFOLD_APIKEY=XXXXXXXXX
+export DATAFOLD_API_KEY=XXXXXXXXX
 
 # only needed if your Datafold app url is not app.datafold.com
 export DATAFOLD_HOST=<CUSTOM_DATAFOLD_APP_DOMAIN>
@@ -79,7 +79,7 @@ import os
 
 from datafold.sdk.dbt import submit_artifacts
 
-api_key = os.environ.get('DATAFOLD_APIKEY')
+api_key = os.environ.get('DATAFOLD_API_KEY')
 
 # only needed if your Datafold app url is not app.datafold.com
 host = os.environ.get("DATAFOLD_HOST")
@@ -100,7 +100,7 @@ The "prod", "pr", and "pk" key values will need to be variables if the goal is r
 #### CLI
 
 ```bash
-export DATAFOLD_APIKEY=XXXXXXXXX
+export DATAFOLD_API_KEY=XXXXXXXXX
 
 # only needed if your Datafold app url is not app.datafold.com
 export DATAFOLD_HOST=<CUSTOM_DATAFOLD_APP_DOMAIN>
@@ -152,7 +152,7 @@ $ pip3 install 'datafold-sdk'
 $ export DATAFOLD_HOST=https://<hostname>
 
 # get your API key in Datafold UI &rarr; Edit Profile &rarr; API Key
-$ export DATAFOLD_APIKEY=<your_api_key>
+$ export DATAFOLD_API_KEY=<your_api_key>
 ```
 
 After that, you need to compile `manifest.json`, and you'll be ready to do the check.
