@@ -61,23 +61,16 @@ We've created guides and templates for three popular CI tools.
  👋 We're here to help! Please [reach out and chat with a Datafold Solutions Engineer](https://calendly.com/d/2t5-zxy-7ks/datafold-meet-with-leo-sung). ☎️
 :::
 
-<Tabs>
-  <TabItem value="gha" label="GitHub Actions" default>
 
-First, install the Datafold SDK in all CI scripts that will use the `datafold dbt upload` command.
-
-```yml
-    steps:
-      - name: Install Datafold SDK
-        run: pip install -q datafold-sdk
-```
-
-Then, to add Datafold to your GitHub Actions configuration, add `datafold dbt upload` steps in two CI jobs:
+To add Datafold to your CI tool, add `datafold dbt upload` steps in two CI jobs:
 
 - **Upload Production Artifacts:** A CI job that build a production `manifest.json`. _This can be either your Production Job or a special Artifacts Job (explained below)._
 - **Upload Pull Request Artifacts:** A CI job that builds a PR `manifest.json`.
 
 This ensures Datafold always has the necessary `manifest.json` files, enabling us to run data diffs comparing production data to dev data.
+
+<Tabs>
+  <TabItem value="gha" label="GitHub Actions" default>
 
 **Upload Production Artifacts**
 
@@ -87,7 +80,21 @@ _Production Job_
 
 If your dbt prod job kicks off on merges to main/master, you can simply add a `datafold dbt upload` step after the `dbt build` step.
 ```yml
+name: Production Job
+
+on:
+  push: # Run the job on push to the main branch
+    branches:
+      - main
+      
+jobs:
+  run:
+    runs-on: ubuntu-20.04 # your image will vary
+
     steps:
+
+      - name: Install Datafold SDK
+        run: pip install -q datafold-sdk
     # ...
       - name: Upload dbt artifacts to Datafold
         run: datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type production --commit-sha ${GIT_SHA}
@@ -98,9 +105,9 @@ If your dbt prod job kicks off on merges to main/master, you can simply add a `d
 
 _Artifacts Job_
 
-Alternatively, if your dbt prod job does _not_ run on merges to main/master, we recommend creating an additional dedicated job that runs on merges to main/master. This job's entire purpose is generating and uploading a `manifest.json` file to Datafold.
+Alternatively, if your dbt prod job does _not_ run on merges to main/master and only runs on a schedule, we recommend creating an additional dedicated job that runs on merges to main/master. 
 
-The Artifacts Job ensures Datafold will always have an up-to-date `manifest.json` representing the production branch, even if the dbt production job runs less frequently than code is shipped.
+The Artifacts Job's entire purpose is generating and uploading a `manifest.json` file to Datafold to represent the state of your dbt project's production branch.
 
 This is the basic structure of an Artifacts Job:
 
@@ -177,56 +184,111 @@ jobs:
 
 ```
 
+Be sure to replace `<datafold_ci_config_id>` with the value you obtained in [this step](#2-obtain-the-ci-config-id-of-your-dbt-core-integration).
+
 **Store your Datafold API Key**
 
 Finally, store [your Datafold API Key](#3-obtain-an-datafold-api-key) as a secret named `DATAFOLD_API_KEY` [in your GitHub repository settings](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
 
 
-Once you've completed these steps, Datafold will kick off on the next GitHub Actions CI run, and Datafold will run data diffs comparing production data to dev data.
+Once you've completed these steps, Datafold will run data diffs between production and development data on the next GitHub Actions CI run.
 
   </TabItem>
 
   <TabItem value="circleci" label="CircleCI">
 
-To add Datafold to your CircleCI configuration, add a `datafold dbt upload` step to the `command` section. 
+**Upload Production Artifacts**
 
-This ensures Datafold always has the necessary `manifest.json` files, enabling us to run data diffs comparing production data to dev data.
+Add the `datafold dbt upload` step to _either_ your Production Job _or_ an Artifacts Job.
 
-**Install the Datafold SDK**
-```yml
-    steps:
-      - checkout
-      - run:
-          name: "Install Datafold SDK"
-          command: pip install -q datafold-sdk
-```
+_Production Job_
 
-**Upload the `manifest.json`**
-
-This step includes logic to modify the `datafold dbt sdk` command depending on whether CI is kicked off by updates to the main/master or PR branch.
-
-```yml
-      - run:
-          name: "run dbt"
-          command: |
-            if [ -z "${CIRCLE_PULL_REQUEST##*/}" ]
-            then
-              export DATAFOLD_RUN_TYPE=production
-            else
-              export DATAFOLD_RUN_TYPE=pull_request
-            fi
-            datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --target-folder ./target/ --commit-sha ${CIRCLE_SHA1}
-```
-
-**Full CircleCI Example Script**
-
-The following template script combines the above steps. Your exact script will vary.
+If your dbt prod job kicks off on merges to main/master, you can simply add a `datafold dbt upload` step after the `dbt build` step.
 
 ```yml
 version: 2.1
 
 jobs:
-  your-ci-job:
+  prod-job:
+    filters:
+      branches:
+        only: main # or master, or the name of your default branch
+    docker:
+      - image: cimg/python:3.9 # your image will vary
+
+    steps:
+      - checkout
+      - run:
+          name: "Install Datafold SDK"
+          command: pip install -q datafold-sdk
+
+      - run:
+          name: "Build dbt project"
+          command: dbt build
+
+      - run:
+          name: "Upload production manifest.json to Datafold"
+          command: |
+            datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type production --target-folder ./target/ --commit-sha ${CIRCLE_SHA1}
+          # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
+```
+
+_Artifacts Job_
+
+Alternatively, if your dbt prod job does _not_ run on merges to main/master and only runs on a schedule, we recommend creating an additional dedicated job that runs on merges to main/master. 
+
+The Artifacts Job's entire purpose is generating and uploading a `manifest.json` file to Datafold to represent the state of your dbt project's production branch.
+
+This is the basic structure of an Artifacts Job:
+
+
+```yml
+version: 2.1
+
+jobs:
+  artifacts-job:
+    filters:
+      branches:
+        only: main # or master, or the name of your default branch
+    docker:
+      - image: cimg/python:3.9 # your image will vary
+    steps:
+      - checkout
+      - run:
+          name: "Install Datafold SDK"
+          command: pip install -q datafold-sdk
+
+
+      - run:
+          name: "Generate manifest.json"
+          command: dbt ls --profiles-dir ./
+
+      - run:
+          name: "Upload production manifest.json to Datafold"
+          command: datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type production --target-folder ./target/ --commit-sha ${CIRCLE_SHA1}
+          # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
+```
+
+**Upload Pull Request Artifacts**
+
+The `datafold dbt upload` step also needs to be added to the CI job that builds PR data.
+
+:::tip dbt in CI
+🔧 If you don't have a CI job that builds PR data, we can help you set this up. Please check out this [step-by-step blog post](https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide), or [book time to chat with a Datafold Solutions Engineer](https://calendly.com/d/2t5-zxy-7ks/datafold-meet-with-leo-sung). ☎️
+:::
+
+_Pull Request Job_
+
+If you already have a Pull Request Job, adding the `datafold dbt upload` step is easy! Simply add the `datafold dbt upload` step to after the `dbt build` step.
+
+```yml
+version: 2.1
+
+jobs:
+  pull-request-job:
+    filters:
+      branches:
+        ignore: main # or master, or the name of your default branch
     docker:
       - image: cimg/python:3.9 # your image will vary
     steps:
@@ -236,109 +298,121 @@ jobs:
           command: pip install -q datafold-sdk
 
       - run:
-          name: "run dbt"
-          command: |
-            dbt build --full-refresh --profiles-dir ./
-            if [ -z "${CIRCLE_PULL_REQUEST##*/}" ]
-            then
-              export DATAFOLD_RUN_TYPE=production
-            else
-              export DATAFOLD_RUN_TYPE=pull_request
-            fi
-            datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type ${DATAFOLD_RUN_TYPE} --target-folder ./target/ --commit-sha ${CIRCLE_SHA1}
+          name: "Generate manifest.json"
+          command: dbt build 
+
+      - run:
+          name: "Upload pull_request manifest.json to Datafold"
+          command: datafold dbt upload --ci-config-id <datafold_ci_config_id> --run-type pull_request --target-folder ./target/ --commit-sha ${CIRCLE_SHA1}
+          # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
 ```
 
 Be sure to replace `<datafold_ci_config_id>` with the value you obtained in [this step](#2-obtain-the-ci-config-id-of-your-dbt-core-integration).
 
-**Settings and Variables in CircleCI**
-
-_"Only build pull requests" setting_
+**"Only build pull requests" setting**
 [Enable "Only build pull requests"](https://circleci.com/docs/oss#only-build-pull-requests) in CircleCI. This ensures that CI runs on pull requests and production, but not on pushes to other branches.
 
-_Store your Datafold API Key_
+**Store your Datafold API Key**
 Finally, store [your Datafold API Key](#3-obtain-an-datafold-api-key) as a secret named `DATAFOLD_API_KEY` [in the CircleCI interface](https://circleci.com/docs/set-environment-variable/).
 
-Once you've completed these steps, Datafold will diff between production and dev data on the next GitHub Actions run.
+Once you've completed these steps, Datafold will run data diffs between production and development data on the next CircleCI run.
   </TabItem>
 
   <TabItem value="gitlab-ci" label="GitLab CI">
 
+Add the `datafold dbt upload` step to _either_ your Production Job _or_ an Artifacts Job.
 
-To add Datafold to your GitLab CI configuration, add a `datafold dbt upload` that will run in two scenarios:
+_Production Job_
 
-- When new commits are pushed to the default branch.
-- When a merge request is opened.
-
-This ensures Datafold always has the necessary `manifest.json` files, enabling us to run data diffs comparing production data to dev data.
-
-**Install the Datafold SDK**
-
-Add a command to install the Datafold SDK in a `before_script` config:
-
-```yml
-  before_script:
-    - pip install -q datafold-sdk
-```
-
-**Upload the `manifest.json`**
-
-Add the `datafold dbt upload` command to the `script` config after the `dbt build` step:
-
-```yml
-  script:
-
-    # Build your dbt models
-    - dbt build --full-refresh --profiles-dir ./ # Your exact dbt invocation may vary.
-
-    # Upload the `manifest.json` to Datafold
-    - datafold dbt upload --ci-config-id <ci-config-id> --run-type $TYPE --commit-sha $CI_COMMIT_SHA
-```
-
-**Specify type of dbt Artifacts**
-
-Using the `rules` config, specify whether the `manifest.json` uploaded to Datafold represents the production or PR branch of your dbt project.
-
-```yml
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-      variables:
-        TYPE: "production"
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      variables:
-        TYPE: "pull_request"
-```
-
-**Full GitLab CI Example Script**
-
-The following template script combines the above steps. Your exact script will vary.
+If your dbt prod job kicks off on merges to main/master, you can simply add a `datafold dbt upload` command to the `script` config after the `dbt build` step:
 
 ```yml
 image:
-  name: ghcr.io/dbt-labs/dbt-core:1.2.2 # your name will vary
+  name: ghcr.io/dbt-labs/dbt-core:1.x # your name will vary
   entrypoint: [ "" ]
 
 run_pipeline:
   stage: deploy
   before_script:
     - pip install -q datafold-sdk
-  script:
 
+  script:
     # Build your dbt models
-    - dbt build --full-refresh --profiles-dir ./ # Your exact dbt invocation may vary.
+    - dbt build --profiles-dir ./ # Your exact dbt invocation may vary.
 
     # Upload the `manifest.json` to Datafold
-    - datafold dbt upload --ci-config-id <ci-config-id> --run-type $TYPE --commit-sha $CI_COMMIT_SHA
-
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-      variables:
-        TYPE: "production"
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      variables:
-        TYPE: "pull_request"
+    - datafold dbt upload --ci-config-id <ci-config-id> --run-type production --commit-sha $CI_COMMIT_SHA
+    # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
 ```
 
-Once you've completed these steps, Datafold will diff between production and dev data on the next GitHub Actions run.
+_Artifacts Job_
+
+Alternatively, if your dbt prod job does _not_ run on merges to main/master and only runs on a schedule, we recommend creating an additional dedicated job that runs on merges to main/master. 
+
+The Artifacts Job's entire purpose is generating and uploading a `manifest.json` file to Datafold to represent the state of your dbt project's production branch.
+
+This is the basic structure of an Artifacts Job:
+
+
+```yml
+image:
+  name: ghcr.io/dbt-labs/dbt-core:1.x # your name will vary
+  entrypoint: [ "" ]
+
+run_pipeline:
+  stage: deploy
+  before_script:
+    - pip install -q datafold-sdk
+
+  script:
+    # Generate manifest.json
+    - dbt ls --profiles-dir ./ 
+
+    # Upload the `manifest.json` to Datafold
+    - datafold dbt upload --ci-config-id <ci-config-id> --run-type production --commit-sha $CI_COMMIT_SHA
+    # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
+```
+
+**Upload Pull Request Artifacts**
+
+The `datafold dbt upload` step also needs to be added to the CI job that builds PR data.
+
+:::tip dbt in CI
+🔧 If you don't have a CI job that builds PR data, we can help you set this up. Please check out this [step-by-step blog post](https://www.datafold.com/blog/accelerating-dbt-core-ci-cd-with-github-actions-a-step-by-step-guide), or [book time to chat with a Datafold Solutions Engineer](https://calendly.com/d/2t5-zxy-7ks/datafold-meet-with-leo-sung). ☎️
+:::
+
+_Pull Request Job_
+
+If you already have a Pull Request Job, adding the `datafold dbt upload` step is easy! Simply add the `datafold dbt upload` step to after the `dbt build` step.
+
+```yml
+image:
+  name: ghcr.io/dbt-labs/dbt-core:1.x # your name will vary
+  entrypoint: [ "" ]
+
+run_pipeline:
+  stage: test
+  before_script:
+    - pip install -q datafold-sdk
+
+  script:
+    # Generate manifest.json
+    - dbt build --profiles-dir ./ 
+
+    # Upload the `manifest.json` to Datafold
+    - datafold dbt upload --ci-config-id <ci-config-id> --run-type production --commit-sha $CI_COMMIT_SHA
+    # The <datafold_ci_config_id> value can be obtained from the Datafold application: Settings > Integrations > dbt Core/Cloud > the ID column
+ rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+```
+
+Be sure to replace `<datafold_ci_config_id>` with the value you obtained in [this step](#2-obtain-the-ci-config-id-of-your-dbt-core-integration).
+
+**Store your Datafold API Key**
+
+Finally, store [your Datafold API Key](#3-obtain-an-datafold-api-key) as a secret named `DATAFOLD_API_KEY` [in your GitLab repository settings](https://docs.gitlab.com/ee/ci/yaml/index.html#secrets).
+
+Once you've completed these steps, Datafold will run data diffs between production and development data on the next GitLab CI run.
 
   </TabItem>
 
