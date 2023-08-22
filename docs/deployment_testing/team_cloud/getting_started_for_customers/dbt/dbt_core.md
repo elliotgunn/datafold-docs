@@ -320,6 +320,8 @@ Once you've completed these steps, Datafold will run data diffs between producti
 
   <TabItem value="gitlab-ci" label="GitLab CI">
 
+**Upload Production Artifacts**
+
 Add the `datafold dbt upload` step to _either_ your Production Job _or_ an Artifacts Job.
 
 _Production Job_
