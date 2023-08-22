@@ -14,7 +14,6 @@ Then, select this job as the "Job that creates dbt artifacts" when setting up yo
     * By default, dbt Cloud runs the production job on a schedule, not on merges.
 
 
-Example [Github Action](/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core/github_actions.md):
 ```yml
 name: Trigger dbt Cloud
 
