@@ -3,7 +3,7 @@ sidebar_position: 1
 title: dbt Core
 id: dbt_core
 description: ""
-pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/source_control
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/version_control
 pagination_next: deployment_testing/team_cloud/getting_started_for_customers/data_apps
 ---
 import Tabs from '@theme/Tabs';

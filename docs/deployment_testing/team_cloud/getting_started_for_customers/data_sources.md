@@ -1,5 +1,5 @@
 ---
-pagination_next: deployment_testing/team_cloud/getting_started_for_customers/source_control
+pagination_next: deployment_testing/team_cloud/getting_started_for_customers/version_control
 ---
 
 # Connect Data Source

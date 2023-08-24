@@ -171,11 +171,23 @@ const config = {
               ],
             },
             {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitHub',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitHub',
               from: '/integrations/git/github',
             },
             {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitLab',
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitHub',
+              from: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitHub'
+            },
+            {
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitLab',
+              from: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitLab'
+            },
+            {
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control',
+              from: '/deployment_testing/team_cloud/getting_started_for_customers/source_control'
+            },
+            {
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitLab',
               from: '/integrations/git/gitlab',
             },
             {

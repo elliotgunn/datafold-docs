@@ -3,7 +3,7 @@ sidebar_position: 2
 title: dbt Cloud
 id: dbt_cloud
 description: ""
-pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/source_control
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/version_control
 pagination_next: deployment_testing/team_cloud/getting_started_for_customers/data_apps
 ---
 :::info
@@ -57,7 +57,7 @@ You will need either a [Service Token](https://docs.getdbt.com/docs/dbt-cloud-ap
 
 ![](../../../../../static/img/dbt_cloud_basic_settings.png)
 
-- **Repository**: Select a repository that you set up in [the Source Control setup step](../source_control.md).
+- **Repository**: Select a repository that you set up in [the Version Control setup step](../version_control.md).
 - **Data Source**: Select a data source that you set up in [the Data Sources setup step](../data_sources.md).
 - **Name**: This can be anything!
 - **Primary key tag**: This is a text string that you may use to tag primary keys in your dbt project yaml. Note that to avoid the need for tagging, [primary keys can be inferred from dbt uniqueness tests](../../../../guides/dbt_advanced_configs.md#inferred).

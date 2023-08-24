@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: GitHub
 description: ""
-pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/source_control
+pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/version_control
 pagination_next: deployment_testing/team_cloud/getting_started_for_customers/dbt
 ---
 <!-- :::caution
