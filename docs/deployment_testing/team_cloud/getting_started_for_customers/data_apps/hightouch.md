@@ -5,7 +5,13 @@ description: ""
 pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/dbt
 pagination_next: guides
 ---
-## Configuration
+### Create a Hightouch Integration
+
+Navigate to Settings > Integrations > Data Apps and add a Hightouch Integration.
+
+![](/img/data_apps_add_new_integration.png)
+
+![](/img/hightouch_blank_integration_form.png)
 
 Complete the configuration by specifying the following fields:
 
@@ -20,4 +26,6 @@ Complete the configuration by specifying the following fields:
 
 When completed, click **Submit**.
 
-It may take some time to sync all the Hightouch entities to Datafold and for Lineage to populate. When completed your Hightouch models and sync will appear in Catalog as search results and Hightouch sources in data sources filter.
+It may take some time to sync all the Hightouch entities to Datafold and for Lineage to populate. When completed, your Hightouch models and sync will appear in Lineage as search results.
+
+![](/img/hightouch_sync_results.png)
