@@ -225,6 +225,10 @@ const config = {
               from: '/integrations/data_apps/hightouch',
             },
             {
+              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_apps/looker',
+              from: '/integrations/data_apps/looker',
+            },
+            {
               to: '/deployment_testing/team_cloud/getting_started_for_customers/data_apps/mode',
               from: '/integrations/data_apps/mode',
             },
