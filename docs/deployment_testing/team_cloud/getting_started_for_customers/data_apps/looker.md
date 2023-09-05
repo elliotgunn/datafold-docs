@@ -24,7 +24,7 @@ Complete the configuration by specifying the following fields:
 | ----------- | ----------- |
 | Integration name | An identifier used in Datafold to identify this Data App configuration. |
 | Project Repository | Select the same repository as used in your Looker project. |
-| API Host URL | The Looker [API Host URL](https://cloud.google.com/looker/docs/admin-panel-platform-api#api_host_url). It has the following format: `https://<instance_name>.cloud.looker.com:<port>`. The port defaults are `19999` (legacy) and `443` (new), see the [Looker Docs](https://cloud.google.com/looker/docs/api-getting-started#versioning) for hints. |
+| API Host URL | The Looker [API Host URL](https://cloud.google.com/looker/docs/admin-panel-platform-api#api_host_url). It has the following format: `https://<instance_name>.cloud.looker.com:<port>`. The port defaults are `19999` (legacy) and `443` (new), see the [Looker Docs](https://cloud.google.com/looker/docs/api-getting-started#looker_api_path_and_port) for hints. Examples: Legacy (`https://datafold.cloud.looker.com:19999`), New (`https://datafold.cloud.looker.com:443`) |
 | Client ID | Follow [these steps](https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk) to generate Client ID and Client Secret. These are always user specific. We recommend using a group email for continuity. See [Looker User Minimum Access Policy](looker.md#looker-user-minimum-access-policy) for the required permissions. |
 | Client Secret | See Client ID |
 | Data source mapping | When the correct credentials are entered we will begin to populate data sources in Looker (on the left side) that will need to be mapped to data sources configured in Datafold (on the right side). See image below. |
