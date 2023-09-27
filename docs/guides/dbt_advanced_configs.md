@@ -120,8 +120,7 @@ models:
     meta:
       datafold:
         datadiff:
-          time_column:
-            - created_at
+          time_column: "created_at"
 ```
 
 ### Time Travel
