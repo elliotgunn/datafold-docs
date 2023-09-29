@@ -26,8 +26,8 @@ The Artifacts job generates production `manifest.json` on a scheduled basis, giv
 
 Example dbt Cloud artifact job settings and successful run:
 
-![](../../../../../static/img/dbt_cloud_artifacts_job.png) 
-![](../../../../../static/img/dbt_ls_artifacts_job_example.png) 
+![](../../../static/img/dbt_cloud_artifacts_job_settings.png) 
+![](../../../static/img/dbt_ls_artifacts_job_example.png) 
 
 <details>
     <summary>Continuous Deployment</summary>
@@ -40,15 +40,15 @@ You will need either a [Service Token](https://docs.getdbt.com/docs/dbt-cloud-ap
 - **Service Token (Recommended):** Navigate to **Account Settings &rarr; Service Tokens &rarr; + New Token** 
     
 
-![](../../../../../static/img/dbt_cloud_add_service_token.png) 
+![](../../../static/img/dbt_cloud_add_service_token.png) 
 
-![](../../../../../static/img/dbt_cloud_add_service_token_permission.png)
+![](../../../static/img/dbt_cloud_add_service_token_permission.png)
 
 - Add a Permission Set and select `Member` or `Developer`
 - Select `All Projects`, or check only the projects to use with Datafold
 - Save 
 
-![](../../../../../static/img/dbt_cloud_service_token.png)
+![](../../../static/img/dbt_cloud_service_token.png)
 
 - Navigate to **Your Profile &rarr; API Access** and copy the token.
 
@@ -56,39 +56,39 @@ You will need either a [Service Token](https://docs.getdbt.com/docs/dbt-cloud-ap
 
 - Navigate to Settings > Integrations > dbt Cloud/Core and create a new dbt Cloud integration.
 
-![](../../../../../static/img/dbt_cloud_setup.png)
+![](../../../static/img/dbt_cloud_setup.png)
 
 - Enter the API Key (Service Token) you copied from dbt Cloud.
 
-![](../../../../../static/img/dbt_cloud_api_key.png)
+![](../../../static/img/dbt_cloud_api_key.png)
 
 ## Configuration
 
 ### Basic Settings
 
-![](../../../../../static/img/dbt_cloud_basic_settings.png)
+![](../../../static/img/dbt_cloud_basic_settings.png)
 
-- **Repository**: Select a repository that you set up in [the Version Control setup step](../version_control.md).
-- **Data Source**: Select a data source that you set up in [the Data Sources setup step](../data_sources.md).
+- **Repository**: Select a repository that you set up in [the Version Control setup step](connections/code_repositories).
+- **Data Source**: Select a data source that you set up in [the Data Sources setup step](connections/databases).
 - **Name**: This can be anything!
-- **Primary key tag**: This is a text string that you may use to tag primary keys in your dbt project yaml. Note that to avoid the need for tagging, [primary keys can be inferred from dbt uniqueness tests](../../../../guides/dbt_advanced_configs.md#inferred).
+- **Primary key tag**: This is a text string that you may use to tag primary keys in your dbt project yaml. Note that to avoid the need for tagging, [primary keys can be inferred from dbt uniqueness tests](deployment_testing/best_practices#primary-key-inference).
 - **Account name**: This will be autofilled using your dbt API key.
 - **Job that creates dbt artifacts**: This will be [the Artifacts Job that you created](#create-an-artifacts-job-in-dbt-cloud). Or, if you have a dbt job that runs on each merge to main, select that job.
 - **Job that builds pull requests**: This is the dbt CI job that is triggered when you open a Pull Request or Merge Request.
 
 ### Advanced Settings
 
-![](../../../../../static/img/dbt_cloud_advanced_settings.png)
+![](../../../static/img/dbt_cloud_advanced_settings.png)
 
 - **Enable Datafold in CI/CD**: High-level switch to turn Datafold off or on in CI (but we hope you'll leave it on!).
 - **Import dbt tags and descriptions**: Populate our Lineage tool with dbt metadata. ⚠️ This feature is in development. ⚠️
-- **Slim Diff**: Only diff modified models in CI, instead of all models. [Please read more about Slim Diff](../../../../guides/slim_diff.md), which is highly configurable using dbt yaml, and each organization will need to set a strategy based on their data environment.
+- **Slim Diff**: Only diff modified models in CI, instead of all models. [Please read more about Slim Diff](deployment_testing/performance_optimization/#slim-diff), which is highly configurable using dbt yaml, and each organization will need to set a strategy based on their data environment.
     - Downstream Hightouch models will be diffed even when Slim Diff is turned on.
 - **Diff Hightouch Models**: Hightouch customers can see diffs of downstream Hightouch assets in Pull Requests.
 - **CI fails on primary key issues**: The existence of null or duplicate primary keys causes the Datafold CI check to fail.
 - **Pull Request Label**: For when you want Datafold to *only* run in CI when a label is manually applied in GitHub/GitLab.
 - **Files to ignore**: If any files listed in this field are modified in the Pull Request, Datafold will not run in CI. 
-    - If you want individual models to never be diffed, but don't want them to block Datafold from diffing other models in the PR, [check out our Never Diff dbt yaml config](../../../../guides/dbt_advanced_configs.md#never-diff-a-model).
+    - If you want individual models to never be diffed, but don't want them to block Datafold from diffing other models in the PR, [check out our Never Diff dbt yaml config](deployment_testing/advanced_features/model-specific_data_diff_configuration/#excluding-models).
     - If **Files to ignore** is defined, the files matching the pattern will be ignored in the PRs. The pattern uses the syntax of `.gitignore`. Excluded files can be re-included by using the negation; re-included files can be later re-excluded again to narrow down the filter. For example, to exclude everything except the `/dbt` folder, but not the dbt `.md` files, do:`*!dbt/*dbt/*.md`
 
 Click save and that's it! 🎉 

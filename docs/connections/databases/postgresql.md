@@ -9,8 +9,8 @@ description: ""
 
 **Steps to complete:**
 
-1. [Run SQL Script for Permissions](postgres.md#run-sql-script)
-2. [Configure your data source in Datafold](postgres.md#configure-in-datafold)
+1. [Run SQL Script for Permissions](postgresql#run-sql-script)
+2. [Configure your data source in Datafold](postgresql#configure-in-datafold)
 
 ### Run SQL Script
 To connect to Postgres, you need to create a user with read-only access to all tables in all schemas, write access to Datafold-specific schema for temporary tables:
@@ -57,10 +57,10 @@ This will guide you through setting up Column-level Lineage with AWS Aurora & RD
 
 **Steps to complete:**
 
-1. [Setup Postgres with Permissions](postgres.md#run-sql-script)
-2. [Increase the logging verbosity of Postgres](postgres.md#increase-logging-verbosity) so Datafold can parse lineage
-3. [Set up an account for fetching the logs from CloudWatch.](postgres.md#connect-datafold-to-cloudwatch)
-4. [Configure your data source in Datafold](postgres.md#configure-in-datafold)
+1. [Setup Postgres with Permissions](postgresql#run-sql-script)
+2. [Increase the logging verbosity of Postgres](postgresql#increase-logging-verbosity) so Datafold can parse lineage
+3. [Set up an account for fetching the logs from CloudWatch.](postgresql#connect-datafold-to-cloudwatch)
+4. [Configure your data source in Datafold](postgresql#configure-in-datafold)
 
 ### Run SQL Script
 To connect to Postgres, you need to create a user with read-only access to all tables in all schemas, write access to Datafold-specific schema for temporary tables:
@@ -136,8 +136,8 @@ The last piece of information Datafold needs is the CloudWatch Log Group. You wi
 | User   | The user role created in the SQL script; `datafold`  |
 | Password  | The password created in the SQL permissions script |
 | Database Name  | The name of the Postgres database you want to connect to |
-| AWS Access Key  | The Access Key provided in the [Connect Datafold to CloudWatch](postgres.md#connect-datafold-to-cloudwatch) step|
-| AWS Secret  | The Secret Key provided in the [Connect Datafold to CloudWatch](postgres.md#connect-datafold-to-cloudwatch) step |
+| AWS Access Key  | The Access Key provided in the [Connect Datafold to CloudWatch](postgresql#connect-datafold-to-cloudwatch) step|
+| AWS Secret  | The Secret Key provided in the [Connect Datafold to CloudWatch](postgresql#connect-datafold-to-cloudwatch) step |
 | Cloudwatch Postgres Log Group  | The path of the Log Group; formatted as `/aws/rds/cluster/<my_cluster_name>/postgresql` |
 | Schema for temporary tables  | The schema created in the SQL setup script; `datafold_tmp` |
 

@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 To add Datafold to your CI using dbt Core:
 
 #### 1. Create a dbt Core integration.
-![](../../../../../static/img/dbt_core_integration.png)
+![](../../../static/img/dbt_core_integration.png)
 
 Complete the configuration by specifying the following fields:
 
@@ -25,7 +25,7 @@ Complete the configuration by specifying the following fields:
 | Name | Choose any name for your Datafold dbt integration. |
 | Primary key tag | Choose a string for [tagging primary keys](/guides/dbt_advanced_configs#tag-primary-keys). |
 | Import dbt tags and descriptions | Import dbt metadata (including column and table descriptions, tags, and owners) to Datafold. |
-| Slim Diff | Data diffs will be run only for models changed in a pull request. See our [guide to Slim Diff](../../../../guides/slim_diff.md) for configuration options. |
+| Slim Diff | Data diffs will be run only for models changed in a pull request. See our [guide to Slim Diff](deployment_testing/performance_optimization/#slim-diff) for configuration options. |
 | Diff Hightouch Models | Run Data Diffs for Hightouch models affected by your PR. |
 | CI fails on primary key issues | The existence of null or duplicate primary keys will cause CI to fail. |
 | Pull Request Label | When this is selected, the Datafold CI process will only run when the 'datafold' label has been applied. |
@@ -36,10 +36,10 @@ Complete the configuration by specifying the following fields:
 | Sampling Threshold | Sampling will be disabled automatically if tables are smaller than specified threshold. If unspecified, default values will be used depending on the Data Source type. |
 
 #### 2. Obtain the CI config ID of your dbt Core integration.
-![](../../../../../static/img/dbt_core_ci_config_id.png)
+![](../../../static/img/dbt_core_ci_config_id.png)
 
 #### 3. Obtain an Datafold API Key.
-![](../../../../../static/img/api_key.png)
+![](../../../static/img/api_key.png)
 
 #### 4. Using the Datafold SDK, configure your CI script(s) to upload dbt `manifest.json` files.
 
