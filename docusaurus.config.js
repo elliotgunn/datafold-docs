@@ -67,7 +67,7 @@ const config = {
           // height: 32,
         },
         items: [
-          {type: 'doc', docId: 'getting_started', label: 'Getting Started', position: 'left'},
+          {type: 'doc', docId: 'welcome', label: 'Welcome', position: 'left'},
           {type: 'docSidebar', sidebarId: 'guides', label: 'Guides', position: 'left'},
           {type: 'docSidebar', sidebarId: 'references', label: 'Reference', position: 'left'},
           // {type: 'docSidebar', sidebarId: 'api', label: 'APIs', position: 'left'},
