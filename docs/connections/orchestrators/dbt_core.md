@@ -23,9 +23,9 @@ Complete the configuration by specifying the following fields:
 | Repository | Select your dbt project. |
 | Data Source | Select the data source your dbt project writes to.|
 | Name | Choose any name for your Datafold dbt integration. |
-| Primary key tag | Choose a string for [tagging primary keys](/guides/dbt_advanced_configs#tag-primary-keys). |
+| Primary key tag | Choose a string for [tagging primary keys](/deployment_testing/best_practices#primary-key-inference). |
 | Import dbt tags and descriptions | Import dbt metadata (including column and table descriptions, tags, and owners) to Datafold. |
-| Slim Diff | Data diffs will be run only for models changed in a pull request. See our [guide to Slim Diff](deployment_testing/performance_optimization/#slim-diff) for configuration options. |
+| Slim Diff | Data diffs will be run only for models changed in a pull request. See our [guide to Slim Diff](/deployment_testing/performance_optimization/#slim-diff) for configuration options. |
 | Diff Hightouch Models | Run Data Diffs for Hightouch models affected by your PR. |
 | CI fails on primary key issues | The existence of null or duplicate primary keys will cause CI to fail. |
 | Pull Request Label | When this is selected, the Datafold CI process will only run when the 'datafold' label has been applied. |

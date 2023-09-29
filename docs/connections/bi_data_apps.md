@@ -6,7 +6,7 @@
 # Connect Data Apps
 
 :::note
-To connect data apps, first connect a [Data Source](/deployment_testing/team_cloud/getting_started_for_customers/data_sources.md), integrate with [Version Control](/deployment_testing/team_cloud/getting_started_for_customers/version_control), and integrate with [dbt](/deployment_testing/team_cloud/getting_started_for_customers/dbt).
+To connect data apps, first connect a [Data Source](/connections/databases), integrate with [Version Control](/connections/code_repositories), and integrate with [dbt](/connections/orchestrators).
 
 Then navigate to **Settings** &rarr; **Data Apps** and click **Add New Integration**.
 :::

@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 ### Set up your dbt project
 
-Install Datafold's open source data-diff tool and update a few lines in your **dbt_project.yml** by [following these installation instructions](/development_testing/open_source).
+Install Datafold's open source data-diff tool and update a few lines in your **dbt_project.yml** by [following these installation instructions](/development_testing/cli).
 
 ### Create a Team Cloud account
 
@@ -26,7 +26,7 @@ If you don't already have a Team Cloud account, [reach out to our team](https://
 
 ### Configure a data source
 
-To connect to your data warehouse, navigate to **Settings** &rarr; **Integrations** &rarr; **Data warehouses** and click **Add new integration** and follow the prompts. For more information, check out our [Data Source configuration guides](/deployment_testing/team_cloud/getting_started_for_customers/data_sources).
+To connect to your data warehouse, navigate to **Settings** &rarr; **Integrations** &rarr; **Data warehouses** and click **Add new integration** and follow the prompts. For more information, check out our [Data Source configuration guides](/connections/databases).
 
 After you **Test and Save**, add the Data Source ID (which can be found on the Data warehouses page) to your **dbt_project.yml**.
     

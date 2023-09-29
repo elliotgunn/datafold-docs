@@ -118,14 +118,14 @@ To get started with any of the use cases above, install data-diff and the releva
 
 Once you've installed data-diff, you can run it from the command line (see below) or via Python API ([see docs](https://data-diff.readthedocs.io/en/latest/python-api.html)). 
 
-<!-- In the examples below, we use URI connection strings to connect to your database; however, we also support config files as an alternate connection method ([see docs](../reference/open_source/cli)). -->
+<!-- In the examples below, we use URI connection strings to connect to your database; however, we also support config files as an alternate connection method ([see docs](/cli)). -->
 
 <Tabs defaultValue="dbt">
   <TabItem label='dbt' value='dbt'>
 
   <Admonition type="caution">
     <p>
-      If you are a dbt user, check out our docs on <a href='/development_testing/open_source'>Development Testing with Open Source</a>.
+      If you are a dbt user, check out our docs on <a href='/development_testing/cli'>Development Testing with Open Source</a>.
     </p>
   </Admonition>
 
@@ -139,7 +139,7 @@ Once you've installed data-diff, you can run it from the command line (see below
 
   <Admonition type="info">
     <p>
-      You can find the <a href='/reference/open_source/cli#uri-strings'>URI string</a> for your database, a full list of <a href='/reference/open_source/cli'>options</a>, and <a href='/reference/open_source/cli#joindiff'>joindiff</a> and <a href='/reference/open_source/cli#joindiff'>hashdiff</a> examples in our Reference section.
+      You can find the <a href='/cli#uri-strings'>URI string</a> for your database, a full list of <a href='/cli'>options</a>, and <a href='/cli#joindiff'>joindiff</a> and <a href='/cli#hashdiff'>hashdiff</a> examples in our Reference section.
     </p>
   </Admonition>
 
@@ -153,7 +153,7 @@ Once you've installed data-diff, you can run it from the command line (see below
 
   <Admonition type="info">
     <p>
-      You can find the <a href='/reference/open_source/cli#uri-strings'>URI string</a> for your database, a full list of <a href='/reference/open_source/cli'>options</a>, and <a href='/reference/open_source/cli#joindiff'>joindiff</a> and <a href='/reference/open_source/cli#joindiff'>hashdiff</a> examples in our Reference section.
+      You can find the <a href='/cli#uri-strings'>URI string</a> for your database, a full list of <a href='/cli'>options</a>, and <a href='/cli#joindiff'>joindiff</a> and <a href='/cli#hashdiff'>hashdiff</a> examples in our Reference section.
     </p>
   </Admonition>
 

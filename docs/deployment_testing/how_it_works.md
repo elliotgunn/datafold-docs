@@ -1,7 +1,7 @@
 ---
 id: how_it_works
-title: How Datafold in CI Works
-sidebar_label: How It Works
+title: How Datafold in CI works
+sidebar_label: How it works
 pagination_prev: null
 #pagination_next: deployment_testing/team_cloud/getting_started_for_customers
 hide_table_of_contents: true
@@ -66,7 +66,7 @@ You can use either dbt Cloud or dbt Core to add astep in your CI process that bu
 
 Once you have a job in CI that builds staging data, you'll be ready to get started with Datafold in CI!
 
-We'll walk through the setup steps in more detail in the [Getting Started](/deployment_testing/team_cloud/getting_started_for_customers.md) section. 
+We'll walk through the setup steps in more detail in the [Getting Started](/deployment_testing/getting_started) section. 
 
 ### How does Datafold in CI work?
 
@@ -76,5 +76,5 @@ We'll walk through the setup steps in more detail in the [Getting Started](/depl
 - Datafold uses two versions of the `manifest.json` to identify code differences.
 - Datafold queries your warehouse and runs Data Diffs of modified models and other downstream impacts to data apps like Hightouch, Mode, Looker, and Tableau.
   - Datafold will diff dbt models that are materialized as both tables and views.
-  - Got a huge dbt project with many downstreams? Don't worry--you can set up [Slim Diff](/guides/slim_diff.md) or utilize other [configuration options](/guides/dbt_advanced_configs.md) to manage scale while ensuring critical models are diffed.
+  - Got a huge dbt project with many downstreams? Don't worry--you can set up [Slim Diff](/deployment_testing/performance_optimization/#slim-diff) or utilize other [configuration options](/deployment_testing/best_practices#primary-key-inference) to manage scale while ensuring critical models are diffed.
 - The results of the Data Diffs are then written directly to GitHub/GitLab, and more details can be viewed in the Datafold Cloud application.

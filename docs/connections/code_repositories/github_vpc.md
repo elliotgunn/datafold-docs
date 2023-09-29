@@ -17,7 +17,7 @@ To begin, navigate to **Settings** &rarr; **Global Settings**.
 
 ![](/img/onprem_github_settings.png)
 
-To begin the set up process, enter the domain that was registered for the VPC deployment in [AWS](../vpc_deployments/aws.md) or [GCP](../vpc_deployments/gcp.md). Then, enter the name of the GitHub organization where you'd like to install the application. When filled, click **Create GitHub App**. 
+To begin the set up process, enter the domain that was registered for the VPC deployment in [AWS](/datafold_deployment/vpc_deployment/aws) or [GCP](/datafold_deployment/vpc_deployment/gcp). Then, enter the name of the GitHub organization where you'd like to install the application. When filled, click **Create GitHub App**. 
 
 This will redirect the admin to GitHub, where they may need to authenticate. **The GitHub user must be an admin of the GitHub organization.**
 
@@ -30,4 +30,4 @@ Once the application is created, you should be returned to the Datafold settings
 
 ## Configure GitHub in Datafold
 
-If you see this screen with all the details, you've successfully created a GitHub App! Now that the app is created, you have to install it using the [GitHub integration setup](../../deployment_testing/team_cloud/getting_started_for_customers/version_control/github).
+If you see this screen with all the details, you've successfully created a GitHub App! Now that the app is created, you have to install it using the [GitHub integration setup](/connections/code_repositories/github).

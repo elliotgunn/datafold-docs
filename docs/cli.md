@@ -2,8 +2,8 @@
 id: cli
 title: CLI
 description: ""
-pagination_prev: reference
-pagination_next: reference/cloud
+#pagination_prev: reference
+#pagination_next: reference/cloud
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -38,7 +38,7 @@ import TabItem from '@theme/TabItem';
 
 ## Examples
 ### dbt
-For dbt examples, check out our documentation on [Development Testing with Open Source](../../development_testing/open_source.md).
+For dbt examples, check out our documentation on [Development Testing with Open Source](development_testing/cli).
 
 ### joindiff
 

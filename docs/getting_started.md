@@ -1,6 +1,6 @@
 ---
 id: getting_started
-title: Develop faster without breaking data
+title: Getting started
 slug: /
 hide_table_of_contents: true
 ---
@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
     <table>
       <tr>
           <td width="50%">
-          Develop dbt models faster by testing as you code. <br /><a href="development_testing/open_source">Learn more &rarr;</a>
+          Develop dbt models faster by testing as you code. <br /><a href="development_testing/cli">Learn more &rarr;</a>
           </td>
           <td width="50%">
           <img src={'/img/development_testing_gif.gif'} />
@@ -30,7 +30,7 @@ import TabItem from '@theme/TabItem';
     <table>
       <tr>
           <td width="50%">
-          Prevent bad dbt deploys with automated testing in CI. <br /><a href="deployment_testing">Learn more &rarr;</a>
+          Prevent bad dbt deploys with automated testing in CI. <br /><a href="deployment_testing/how_it_works">Learn more &rarr;</a>
           </td>
           <td width="50%"><video src="https://datafold-public.s3.us-west-2.amazonaws.com/small-video-01.mp4" preload="metadata" autoplay="autoplay" loop="loop" muted="" width="102%" height="auto%"></video></td>
       </tr>

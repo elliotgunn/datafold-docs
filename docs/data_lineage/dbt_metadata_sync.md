@@ -4,8 +4,6 @@ id: dbt_metadata_sync
 title: 'dbt Metadata Sync'
 ---
 
-## dbt Metadata Sync
-
 :::info
 You can enable the metadata sync in your Orchestration settings.
 :::

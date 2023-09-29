@@ -35,7 +35,7 @@ Set absolute paths in the Extension Settings to avoid any issues.
   - selecting a data warehouse
 - **If you use custom schemas**, just enter any text string in the "Enter your schema" step. This will populate the `production_schema`
   `var` in your `dbt_project.yml` with whatever value you entered. Then, you'll need to adjust your `dbt_project.yml`
-  following the steps in the Custom Schema section in [our documentation](../development_testing/open_source/).
+  following the steps in the Custom Schema section in [our documentation](/development_testing/cli).
 
 This is what will be added to the `vars` of your `dbt_project.yml` once setup is complete:
 

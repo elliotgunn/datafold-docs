@@ -8,7 +8,7 @@ description: ""
 
 ### Create a Version Control Integration
 
-[Create a Version Control integration](/docs/deployment_testing/team_cloud/getting_started_for_customers/version_control.md) that connects Datafold to your Looker repository.
+[Create a Version Control integration](/connections/code_repositories) that connects Datafold to your Looker repository.
 
 ### Create a Looker Integration
 

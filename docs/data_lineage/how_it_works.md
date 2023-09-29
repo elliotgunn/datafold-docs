@@ -1,4 +1,5 @@
 ---
+sidebar_position: 1
 id: how_it_works
 title: How it works
 #pagination_prev: enterprise_accounts/sso

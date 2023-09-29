@@ -186,7 +186,7 @@ data-diff --dbt --state prod_manifest.json # run data-diff to compare your devel
 ```
 
 
-Then, identify primary keys in each model by adding tags, metadata, or uniqueness tests. [Check out this page](/guides/dbt_advanced_configs#tag-primary-keys) for more details on configuration.
+Then, identify primary keys in each model by adding tags, metadata, or uniqueness tests. [Check out this page](/deployment_testing/best_practices#primary-key-inference) for more details on configuration.
 
 ### Run with --dbt
 
@@ -218,6 +218,6 @@ data-diff --dbt --select <models>
 
 #### Handling very large dbt models
 
-`data-diff` will reach performance limitations on large dbt models. One strategy to reduce run time in this scenario is to add a [filter](/guides/dbt_advanced_configs#filter-tables), which is essentially a `where` clause that is configured in that model's yml. This defines which rows will be diffed.
+`data-diff` will reach performance limitations on large dbt models. One strategy to reduce run time in this scenario is to add a [filter](/deployment_testing/advanced_features/model-specific_data_diff_configuration/#model-specific-data-diff-configuration), which is essentially a `where` clause that is configured in that model's yml. This defines which rows will be diffed.
 
-Another option is to limit the number of columns via the [Include / Exclude Columns](/guides/dbt_advanced_configs/#include--exclude-columns) configuration.
+Another option is to limit the number of columns via the [Include / Exclude Columns](/deployment_testing/advanced_features/model-specific_data_diff_configuration/#includingexcluding-columns) configuration.

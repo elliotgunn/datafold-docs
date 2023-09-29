@@ -7,7 +7,7 @@ description: ""
 pagination_next: 
 ---
 :::info
-To use the Datafold REST API, you should first [create a Datafold API Key](/reference/cloud#create-an-api-key).
+To use the Datafold REST API, you should first [create a Datafold API Key](/cloud#create-an-api-key).
 :::
 
 ## Install
