@@ -5,9 +5,9 @@ description: ""
 pagination_prev: reference/open_source
 pagination_next: 
 ---
-:::info
+<!-- :::info
 To use the Datafold GraphQL API, you should first [create a Datafold API Key](/reference/cloud#create-an-api-key).
-:::
+::: -->
 ## API Info
 
 | <div style={{ width: '290px' }}>Parameter</div> | <div style={{ width: '290px' }}>Value</div> |

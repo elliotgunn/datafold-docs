@@ -31,7 +31,7 @@ Example dbt Cloud artifact job settings and successful run:
 
 <details>
     <summary>Continuous Deployment</summary>
-    If you are interested in continuous deployment, you can use a <a href="/guides/cd#merge-trigger-production-job">Merge Trigger Production Job</a> instead of the Artifacts Job listed above.
+    If you are interested in continuous deployment, you can use a <a href="/cd#merge-trigger-production-job">Merge Trigger Production Job</a> instead of the Artifacts Job listed above.
 </details>
 
 ### dbt Cloud API Key

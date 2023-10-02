@@ -6,9 +6,9 @@ description: ""
 #pagination_prev: reference/open_source
 pagination_next: 
 ---
-:::info
+<!-- :::info
 To use the Datafold REST API, you should first [create a Datafold API Key](/cloud#create-an-api-key).
-:::
+::: -->
 
 ## Install
 First, create your virtual environment for python:

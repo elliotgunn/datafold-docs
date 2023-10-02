@@ -2,8 +2,8 @@
 id: open_source
 title: Open Source
 description: ""
-pagination_prev: reference
-pagination_next: reference/cloud
+# pagination_prev: reference
+# pagination_next: reference/cloud
 ---
 
 # Open Source Reference

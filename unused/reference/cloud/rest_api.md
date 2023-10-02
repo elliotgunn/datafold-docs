@@ -5,9 +5,9 @@ description: ""
 pagination_prev: reference/open_source
 pagination_next: 
 ---
-:::info
+<!-- :::info
 To use the Datafold REST API, you should first [create a Datafold API Key](/reference/cloud#create-an-api-key).
-:::
+::: -->
 
 Use Datafold's REST API to create new data diffs and get diff results.
 

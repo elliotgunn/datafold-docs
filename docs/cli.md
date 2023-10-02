@@ -2,8 +2,8 @@
 id: cli
 title: CLI
 description: ""
-#pagination_prev: reference
-#pagination_next: reference/cloud
+# pagination_prev: reference
+# pagination_next: reference/cloud
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
