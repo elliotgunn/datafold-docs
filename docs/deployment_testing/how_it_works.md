@@ -7,6 +7,8 @@ pagination_prev: null
 hide_table_of_contents: true
 ---
 
+<td width="50%"><video src="https://datafold-public.s3.us-west-2.amazonaws.com/small-video-01.mp4" preload="metadata" autoplay="autoplay" loop="loop" muted="" width="50%" height="auto%"></video></td>
+
 A core component of Datafold Cloud is the integration of Datafold into your _Continuous Integration (CI)_ process. This is how Datafold creates Data Diffs for all dbt model code changes, catching issues before they make it into production.
 
 :::tip What is CI?

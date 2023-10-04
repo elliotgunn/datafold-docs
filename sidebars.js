@@ -15,8 +15,7 @@
 const sidebars = {
   docs: [
     // 'quickstart',
-    {type: 'doc', id: 'welcome', label: 'Welcome to Datafold'},
-    {type: 'doc', id: 'getting_started', label: 'Getting Started'},
+    {type: 'doc', id: 'intro', label: 'Introduction'},
     {
       type: 'category',
       label: 'Data Diff',
@@ -24,17 +23,7 @@ const sidebars = {
       collapsible: false,
       items: [
         {type: 'doc', id: 'data_diff/what_is_data_diff', label: 'What is Data Diff'},
-        {
-          type: 'category',
-          link: {type: 'doc', id: 'data_diff/data_diff_use_cases'},
-          label: 'Data Diff Use Cases',
-          items: [
-            {type: 'link', label: "Development Testing", href: "/data_diff/data_diff_use_cases#development-testing"},
-            {type: 'link', label: "Deployment Testing", href: "/data_diff/data_diff_use_cases#deployment-testing"},
-            {type: 'link', label: "Migration Testing", href: "/data_diff/data_diff_use_cases#migration-testing"},
-            {type: 'link', label: "Replication Testing", href: "/data_diff/data_diff_use_cases#replication-testing"},
-          ]
-        },
+      
         {type: 'category',
             label: 'In-database diffing',
             link: {type: 'doc', id: 'data_diff/in-database_diffing'},
@@ -53,8 +42,6 @@ const sidebars = {
             {type: 'link', label: "Performance considerations", href: "/data_diff/cross-database_diffing/#performance-considerations"},
             {type: 'link', label: "Advanced features", href: "/data_diff/cross-database_diffing/#advanced-features"}]
           },
-        {type: 'doc', id: 'data_diff/open-source_vs_cloud', label: 'Open-Source vs Cloud'
-      },
       ]
     },
     {
