@@ -8,23 +8,18 @@ hide_table_of_contents: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## See value-level impact as you develop in dbt.
 
-### Create a Team Cloud account to view and save value-level impact reports generated while developing in your dbt local environment.
+Datafold Cloud extends development testing by allowing you to use the same interface as the open-source data-diff CLI but enables rich visualization capabilities to make exploring diffs and collaborating with your team easier.
 
-:::tip Team Cloud
-🔧 Interested in adding Datafold Team Cloud to your CI pipeline? [Let's talk!](https://calendly.com/d/zkz-63b-23q/see-a-demo?email=clay%20analytics%40datafold.com&first_name=Clay&last_name=Moeller&a1=) ☎️
-:::
+# Getting started
 
-### Set up your dbt project
+#### 1. [Sign up](https://app.datafold.com/org-signup) for Datafold Cloud
 
-Install Datafold's open source data-diff tool and update a few lines in your **dbt_project.yml** by [following these installation instructions](/development_testing/cli).
+#### 2. Set up your dbt project
 
-### Create a Team Cloud account
+Install open source data-diff CLI and configure your dbt project as described [here](/development_testing/cli).
 
-If you don't already have a Team Cloud account, [reach out to our team](https://calendly.com/d/zkz-63b-23q/see-a-demo?email=clay%20analytics%40datafold.com&first_name=Clay&last_name=Moeller&a1=) to get started.
-
-### Configure a data source
+#### 3. Configure the data source
 
 To connect to your data warehouse, navigate to **Settings** &rarr; **Integrations** &rarr; **Data warehouses** and click **Add new integration** and follow the prompts. For more information, check out our [Data Source configuration guides](/connections/databases).
 
@@ -38,7 +33,7 @@ After you **Test and Save**, add the Data Source ID (which can be found on the D
         datasource_id: <DATA_SOURCE_ID>
   ```
 
-### Generate an API key
+#### 4. Generate an API key
 
 To generate a personal API key, navigate to **Settings** &rarr; **Account** and click **Create API Key**. 
 
@@ -49,16 +44,16 @@ Copy and export your API Key as an environment variable. We suggest storing it i
   ``` 
 
 :::info
-On-prem customers should set an environment variable specifying the URL you use to access Datafold.
+If your Datafold instance runs in your company's VPC, you should set an environment variable specifying the Datafold app URL.
 
   ```bash
   export DATAFOLD_HOST=https://datafold.domain.tld
   ``` 
 :::
 
-### Run `data-diff --dbt --cloud`
+#### 5. Run `data-diff --dbt --cloud`
 
-Build 1 or more dbt models, and then run `data-diff --dbt --cloud` to see the impact that your model changes had on the data.
+After you execute `dbt run` in your local environment run `data-diff --dbt --cloud` to see the impact that your model changes had on the data.
     
   ```zsh
   dbt run --select <MODEL> && data-diff --dbt --cloud

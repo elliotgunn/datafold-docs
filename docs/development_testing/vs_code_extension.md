@@ -9,13 +9,15 @@ With the [Datafold VS Code Extension](https://marketplace.visualstudio.com/items
 
 ![](../../static/img/vs_code_datafold_gif.gif)
 
-## Installation
+# Getting Started
 
-1. Install the [Datafold VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Datafold.datafold-vscode) using the VS Code Extension tab.
+## Install Datafold VS Code Extension
+
+#### 1. Install the [Datafold VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Datafold.datafold-vscode) using the VS Code Extension tab
 
 ![](../../static/img/vs_code_install.png)
 
-2. Open up the extension's settings to set file paths for dbt profiles, your dbt project, and your Python installation.
+#### 2. Open the extension's settings to set file paths for dbt profiles, your dbt project, and your Python installation
 
 ![](../../static/img/vs_code_settings.png)
 
@@ -25,7 +27,7 @@ Set absolute paths in the Extension Settings to avoid any issues.
 
 :::
 
-3. Using the command palate (⌘⇧P on Mac, ⌃⇧P on Windows and Linux), install `data-diff` by searching for "Datafold: Install data-diff". 
+#### 3. Using the command palate (⌘⇧P on Mac, ⌃⇧P on Windows and Linux), install `data-diff` by searching for "Datafold: Install data-diff"
 
 ![](../../static/img/vs_code_install_data-diff.png)
 
@@ -46,9 +48,8 @@ vars:
     prod_schema: YOUR_SCHEMA
 ```
 
-## Getting started
 
-### Running your first Data Diff
+## Running your first Data Diff
 
 You can diff dbt models by clicking on the bird of Datafold, which reveals a sidebar containing all of your dbt models.
 
