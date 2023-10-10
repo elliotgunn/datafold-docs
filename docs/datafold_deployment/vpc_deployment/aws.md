@@ -5,7 +5,7 @@ description: ""
 #pagination_prev: enterprise_accounts/vpc_deployments
 #pagination_next: enterprise_accounts/sso
 ---
-# VPC Deployment with AWS
+# Datafold VPC Deployment on AWS
 :::info
 VPC deployments are an Enterprise feature. Please email [sales@datafold.com](mailto:sales@datafold.com) to enable your account. 
 :::
