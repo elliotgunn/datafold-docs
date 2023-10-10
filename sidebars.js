@@ -29,9 +29,11 @@ const sidebars = {
             link: {type: 'doc', id: 'data_diff/in-database_diffing'},
             items: [
             {type: 'link', label: "How it works", href: "/data_diff/in-database_diffing/#how-it-works"},
-            {type: 'link', label: "Interpreting data diffs", href: "/data_diff/in-database_diffing/#interpreting-data-diffs"},
-            {type: 'link', label: "Performance considerations", href: "/data_diff/in-database_diffing/#performance-considerations"},
-            {type: 'link', label: "Advanced features", href: "/data_diff/in-database_diffing/#advanced-features"}]
+            // {type: 'link', label: "Interpreting data diffs", href: "/data_diff/in-database_diffing/#interpreting-data-diffs"},
+            {type: 'link', label: "Creating diffs", href: "/data_diff/in-database_diffing/#creating-diffs"},
+            {type: 'link', label: "Performance", href: "/data_diff/in-database_diffing/#performance-considerations"}
+
+            ]
           },
             {type: 'category',
             label: 'Cross-database diffing',
