@@ -2,8 +2,8 @@
 id: rest_api
 title: REST API
 description: ""
-pagination_prev: reference/open_source
-pagination_next: 
+# pagination_prev: reference/open_source
+# pagination_next: 
 ---
 <!-- :::info
 To use the Datafold REST API, you should first [create a Datafold API Key](/reference/cloud#create-an-api-key).

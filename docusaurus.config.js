@@ -347,7 +347,7 @@ const config = {
             ],
           },
           {
-            to: "/data_diff/open-source_vs_cloud",
+            to: "/",
             from: [
               "/guides/os_data_diff",
               "/os_diff/how_to_install",

@@ -2,8 +2,8 @@
 id: graphql
 title: GraphQL
 description: ""
-pagination_prev: reference/open_source
-pagination_next: 
+# pagination_prev: reference/open_source
+# pagination_next: 
 ---
 <!-- :::info
 To use the Datafold GraphQL API, you should first [create a Datafold API Key](/reference/cloud#create-an-api-key).

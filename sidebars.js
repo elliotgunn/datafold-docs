@@ -358,7 +358,7 @@ const sidebars = {
         {
           type: "category",
           label: "Open Source",
-          // link: { type: "doc", id: "reference/open_source" },
+          link: { type: "doc", id: "reference/open_source" },
           collapsible: false,
           items: [
             "reference/open_source/cli",
@@ -372,7 +372,6 @@ const sidebars = {
         {
           type: "category",
           label: "Cloud",
-          // link: { type: "doc", id: "reference/cloud" },
           collapsible: false,
           items: [
             "reference/cloud/rest_api",
