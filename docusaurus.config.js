@@ -66,10 +66,11 @@ const config = {
           // height: 32,
         },
         items: [
+          {type: 'doc', docId: 'intro', label: 'Documentation', position: 'left'},
+          {type: 'docSidebar', sidebarId: 'references', label: 'API Reference', position: 'left'},
           { type: "search", position: "right" },
-          // {type: 'doc', docId: 'welcome', label: 'Welcome', position: 'left'},
-          // {type: 'docSidebar', sidebarId: 'guides', label: 'Guides', position: 'left'},
-          // {type: 'doc', docId: 'references', label: 'Reference', position: 'left'},
+          //  {type: 'docSidebar', sidebarId: 'reference', label: 'API Reference', position: 'left'},
+          // {type: 'doc', docId: 'reference', label: 'API Reference', position: 'left'},
           // {type: 'docSidebar', sidebarId: 'api', label: 'APIs', position: 'left'},
           // {to: '/blog', label: 'Blog', position: 'left'}, // remove to turn on blog
           // {
