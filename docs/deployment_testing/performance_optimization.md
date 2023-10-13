@@ -76,4 +76,16 @@ With this configuration in place, Slim Diff will prevent downstream models from 
 
 As usual, once the PR has been opened, you'll still have the option of diffing individual downstream models that weren't diffed, or diffing all downstream models using the `datafold:diff-all-downstream` label.
 
-## Custom SQL Files
+## SQL Filters
+
+SQL filters are another effective technique to speed up diffs by narrowing the data diffed. SQL filter adds a `WHERE` clause to allow you to filter data on both sides using standard SQL filter expressions. SQL filters can be added to dbt YAML under the `meta.datafold.datadiff.filter` tag:
+
+```yaml
+models:
+  - name: users
+    meta:
+      datafold:
+        datadiff:
+          filter: "user_id > 2350 AND source_timestamp >= current_date() - 7"
+
+```

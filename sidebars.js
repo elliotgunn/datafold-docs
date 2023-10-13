@@ -109,7 +109,7 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Perfomance optimisation",
+          label: "Perfomance Optimization",
           link: {
             type: "doc",
             id: "deployment_testing/performance_optimization",
