@@ -1,9 +1,21 @@
 ---
-id: model-specific_data_diff_configuration
-title: Model-specific data diff configuration
+id: model-specific_ci_configuration
+title: Model-specific CI configuration
 ---
-### Model-specific data diff configuration
-Like `where` clauses, filters allow you to narrow the data diffed by specifying certain conditions. In fact, a filter is a SQL expression, and can be anything you could put into `where` clause.
+
+Datafold leverages dbt YAML configuration to allow setting model-specific configuration for CI.
+
+
+## SQL Filters
+
+SQL filters can be helpful in two scenarios:
+
+1. When **Production** and **Staging** environment are not built using the same data. I.e., when **Staging** is built using a subset of production data, filters can be applied to ensure that both environments are on par and can be diffed.
+
+2. To improve Datafold CI performance by reducing the volume of data compared, e.g. to only last 3 months.
+
+
+are an effective technique to speed up diffs by narrowing the data diffed. SQL filter adds a `WHERE` clause to allow you to filter data on both sides using standard SQL filter expressions. SQL filters can be added to dbt YAML under the `meta.datafold.datadiff.filter` tag:
 
 ```yaml
 models:
@@ -11,11 +23,8 @@ models:
     meta:
       datafold:
         datadiff:
-          filter: "user_id > 2350"
-          # or
-          filter: "source_timestamp >= current_date() - 7"
-          # or
-          filter: "created_at >= '2021-01-01'"
+          filter: "user_id > 2350 AND source_timestamp >= current_date() - 7"
+
 ```
 
 ### Time Travel

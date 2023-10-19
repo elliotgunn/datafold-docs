@@ -1,9 +1,9 @@
 ---
-id: performance_optimization
-title: Performance Optimization
+id: slim_diff
+title: Slim Diff
 description: ""
 ---
-## Slim Diff
+
 By default, Datafold diffs all modified models and downstream models. However, it won't make sense for all organizations to diff every downstream table every time you make a code update. Tradeoffs of time, cost, and risk must be considered.
 
 That's why we created Slim Diff.
@@ -75,4 +75,3 @@ With this configuration in place, Slim Diff will prevent downstream models from 
 <br/>
 
 As usual, once the PR has been opened, you'll still have the option of diffing individual downstream models that weren't diffed, or diffing all downstream models using the `datafold:diff-all-downstream` label.
-

@@ -208,6 +208,6 @@ data-diff --dbt --select <models>
 
 #### Handling very large dbt models
 
-`data-diff` will reach performance limitations on large dbt models. One strategy to reduce run time in this scenario is to add a [filter](/deployment_testing/advanced_features/model-specific_data_diff_configuration/#model-specific-data-diff-configuration), which is essentially a `where` clause that is configured in that model's yml. This defines which rows will be diffed.
+`data-diff` will reach performance limitations on large dbt models. One strategy to reduce run time in this scenario is to add a [filter](/deployment_testing/configuration/model-specific_ci_configuration/#model-specific-data-diff-configuration), which is essentially a `where` clause that is configured in that model's yml. This defines which rows will be diffed.
 
-Another option is to limit the number of columns via the [Include / Exclude Columns](/deployment_testing/advanced_features/model-specific_data_diff_configuration/#includingexcluding-columns) configuration.
+Another option is to limit the number of columns via the [Include / Exclude Columns](/deployment_testing/configuration/model-specific_ci_configuration/#includingexcluding-columns) configuration.

@@ -19,7 +19,7 @@ const sidebars = {
       type: "category",
       label: "Data Diff",
       collapsed: false,
-      collapsible: false,
+      collapsible: true,
       items: [
         {
           type: "doc",
@@ -78,7 +78,7 @@ const sidebars = {
       type: "category",
       label: "Deployment Testing",
       collapsed: false,
-      collapsible: false,
+      collapsible: true,
       items: [
         {
           type: "doc",
@@ -104,39 +104,9 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Optimizing Perfomance",
-          link: {
-            type: "doc",
-            id: "deployment_testing/performance_optimization",
-          },
-          items: [
-            {
-              type: "link",
-              label: "Slim Diff",
-              href: "/deployment_testing/performance_optimization/#slim-diff",
-            },
-            {
-              type: "link",
-              label: "SQL filters",
-              href: "/deployment_testing/performance_optimization/#sql-filters",
-            },
-          ],
-        },
-        {
-          type: "category",
-          label: "Best practices",
+          label: "Using Datafold in CI",
           link: { type: "doc", id: "deployment_testing/best_practices" },
           items: [
-            {
-              type: "link",
-              label: "BI & Data Apps impact analysis",
-              href: "/deployment_testing/best_practices#bi--data-apps-impact-analysis",
-            },
-            {
-              type: "link",
-              label: "Primary key inference",
-              href: "/deployment_testing/best_practices#primary-key-inference",
-            },
             {
               type: "link",
               label: "Column remapping",
@@ -146,77 +116,81 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Advanced features",
+          label: "Configuration",
           items: [
             {
-              type: "category",
-              label: "Data diff CI triggers",
-              link: {
-                type: "doc",
-                id: "deployment_testing/advanced_features/data_diff_ci_triggers",
-              },
-              items: [
-                {
-                  type: "link",
-                  label: "Running data diff on demand",
-                  href: "/deployment_testing/advanced_features/data_diff_ci_triggers/#running-data-diff-on-demand",
-                },
-                {
-                  type: "link",
-                  label: "Running data diff on specific file changes",
-                  href: "/deployment_testing/advanced_features/data_diff_ci_triggers/#running-data-diff-on-specific-file-changes",
-                },
-                {
-                  type: "link",
-                  label: "Skipping data diff run for a commit",
-                  href: "/deployment_testing/advanced_features/data_diff_ci_triggers/#skipping-data-diff-run-for-a-commit",
-                },
-              ],
+              type: "doc",
+              label: "Primary Key Inference",
+              id: "deployment_testing/configuration/primary_key_inference",
             },
+
+            {
+              type: "doc",
+              label: "Slim Diff",
+              id: "deployment_testing/configuration/slim_diff",
+            },
+            
             {
               type: "category",
-              label: "Model-specific data diff configuration",
+              label: "Datafold CI Triggers",
+              items:[
+                {
+                  type: "link",
+                  label: "Run CI on-demand",
+                  href: "/deployment_testing/configuration/data_diff_ci_triggers/#running-data-diff-on-demand",
+                },
+                {
+                  type: "link",
+                  label: "Run CI for specific files",
+                  href: "/deployment_testing/configuration/data_diff_ci_triggers/#running-data-diff-on-specific-file-changes",
+                },
+                {
+                  type: "link",
+                  label: "Skip CI run for a commit",
+                  href: "/deployment_testing/configuration/data_diff_ci_triggers/#skipping-data-diff-run-for-a-commit",
+                }],
+          },
+          
+          {
+              type: "category",
+              label: "Model-specific CI Configs",
               link: {
                 type: "doc",
-                id: "deployment_testing/advanced_features/model-specific_data_diff_configuration",
-              },
+                id: "deployment_testing/configuration/model-specific_ci_configuration",},
               items: [
                 {
                   type: "link",
-                  label: "Filter tables",
-                  href: "/deployment_testing/advanced_features/model-specific_data_diff_configuration/#model-specific-data-diff-configuration",
+                  label: "SQL Filters",
+                  href: "/deployment_testing/configuration/model-specific_ci_configuration/#sql-filters",
                 },
                 {
                   type: "link",
-                  label: "Time travel",
-                  href: "/deployment_testing/advanced_features/model-specific_data_diff_configuration/#time-travel",
+                  label: "Time Travel",
+                  href: "/deployment_testing/configuration/model-specific_ci_configuration/#time-travel",
                 },
                 {
                   type: "link",
-                  label: "Including/excluding columns",
-                  href: "/deployment_testing/advanced_features/model-specific_data_diff_configuration/#include--exclude-columns",
+                  label: "Including/excluding Columns",
+                  href: "/deployment_testing/configuration/model-specific_ci_configuration/#include--exclude-columns",
                 },
                 {
                   type: "link",
-                  label: "Excluding models",
-                  href: "/deployment_testing/advanced_features/model-specific_data_diff_configuration/#excluding-models",
+                  label: "Excluding Models",
+                  href: "/deployment_testing/configuration/model-specific_ci_configuration/#excluding-models",
                 },
                 {
                   type: "link",
-                  label: "Diff timeline",
-                  href: "/deployment_testing/advanced_features/model-specific_data_diff_configuration/#diff-timeline",
-                },
-              ],
-            },
-          ],
-        },
-      ],
+                  label: "Diff Timeline",
+                  href: "/deployment_testing/configuration/model-specific_ci_configuration/#diff-timeline",
+                }],
+          }],
+        }],
     },
     {
       type: "category",
       label: "Development Testing",
-      collapsed: false,
-      collapsible: false,
+      collapsed: true,
+      collapsible: true,
       items: [{ type: "autogenerated", dirName: "development_testing" }],
     },
     {
@@ -253,9 +227,9 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Connections",
-      collapsed: false,
-      collapsible: false,
+      label: "Integrations",
+      collapsed: true,
+      collapsible: true,
       items: [
         {
           type: "category",
@@ -319,8 +293,8 @@ const sidebars = {
     {
       type: "category",
       label: "Security",
-      collapsed: false,
-      collapsible: false,
+      collapsed: true,
+      collapsible: true,
       items: [
         {
           type: "link",

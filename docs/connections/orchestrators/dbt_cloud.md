@@ -88,7 +88,7 @@ You will need either a [Service Token](https://docs.getdbt.com/docs/dbt-cloud-ap
 - **CI fails on primary key issues**: The existence of null or duplicate primary keys causes the Datafold CI check to fail.
 - **Pull Request Label**: For when you want Datafold to *only* run in CI when a label is manually applied in GitHub/GitLab.
 - **Files to ignore**: If any files listed in this field are modified in the Pull Request, Datafold will not run in CI. 
-    - If you want individual models to never be diffed, but don't want them to block Datafold from diffing other models in the PR, [check out our Never Diff dbt yaml config](/deployment_testing/advanced_features/model-specific_data_diff_configuration/#excluding-models).
+    - If you want individual models to never be diffed, but don't want them to block Datafold from diffing other models in the PR, [check out our Never Diff dbt yaml config](/deployment_testing/configuration/model-specific_ci_configuration/#excluding-models).
     - If **Files to ignore** is defined, the files matching the pattern will be ignored in the PRs. The pattern uses the syntax of `.gitignore`. Excluded files can be re-included by using the negation; re-included files can be later re-excluded again to narrow down the filter. For example, to exclude everything except the `/dbt` folder, but not the dbt `.md` files, do:`*!dbt/*dbt/*.md`
 
 Click save and that's it! 🎉 
