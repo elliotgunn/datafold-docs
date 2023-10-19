@@ -106,7 +106,7 @@ Acceptable (relative or absolute) delta between numeric values to determine a ma
 
 <!-- TODO: ## Interpreting data diffs -->
 
-## Performance considerations
+## Optimizing Performance
 
 ### How scalable is data diff?
 

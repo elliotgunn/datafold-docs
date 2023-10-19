@@ -120,9 +120,50 @@ Finally data diff will output the `(id, updated_at)` tuple for each row that was
 ```
 
 
+## Creating diffs
+
+Diffs can be created in multiple ways including:
+
+- Interactively via Datafold App 
+- Through Datafold Cloud [API](/reference/cloud/rest_api)
+
+
+The basic inputs required to run a diff are data sources, names of the datasets to compare and the primary key (column or a combination of columns that uniquely identify a row in the dataset).
+
+
+The following parameters and options can be used to configure diffs:
+
+
+#### Primary key
+
+Column or a list of columns that comprise the primary key for the dataset. Note that the primary key doesn't need to be formally defined in the database or anywhere – it is used to uniquely identify a row in the dataset during diffing.
+
+
+#### Filter
+
+SQL filter clause that will be inserted after `WHERE` to filter the dataset. Example: `created_at > '2000-01-01'`
+
+
+#### Columns to compare
+
+Which columns to compare between datasets. Note that this has performance implications, especially for wide (30+ columns) tables. It is recommended to start with comparing based on the primary key only or select a smaller number of columns.
+
+
+#### Diff Limit
+
+This option causes diff to terminate after there the number of different rows (either rows with mismatched primary keys or with different column values) identified by diff reaches Diff Limit. This helps prevent excessive runtime and database load if datasets are very different. Note that because the algorithm aims to identify and return every mismatched row/value, if the datasets have a large percentage of differing rows, diff may be unable to take advantage of checksumming and will end up pulling a lot of data over the network which slows down the diffing process and increases the strain on the database. For most use cases, it is impractical to continue diffing after it is known that datasets are substantially different and hence it is highly recommended to set Diff Limit parameter.
+
+
+#### Bisection Factor
+Sets the number of checksum segments that the dataset is divided into per comparison iteration. Increasing this value may improve performance for extremely large data sets.
+
+
+#### Bisection Threshold
+If the row count is below this threshold in a segment, diff will compare the data outside of the warehouse. Increasing this value may improve performance in datasets with large amounts of expected differences.
+
 <!-- TODO: ## Interpreting data diffs -->
 
-## Performance considerations
+## Optimizing Performance
 
 While data diff functions very efficiently and, in most scenarios, is comparable to `COUNT(*)` operation in terms of performance, care should be applied when diffing large datasets.
 

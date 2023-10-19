@@ -45,8 +45,8 @@ const sidebars = {
             },
             {
               type: "link",
-              label: "Performance",
-              href: "/data_diff/in-database_diffing/#performance-considerations",
+              label: "Optimizing Performance",
+              href: "/data_diff/in-database_diffing/#optimizing-performance",
             },
           ],
         },
@@ -62,18 +62,13 @@ const sidebars = {
             },
             {
               type: "link",
-              label: "Interpreting data diffs",
-              href: "/data_diff/cross-database_diffing/#interpreting-data-diffs",
+              label: "Creating diffs",
+              href: "/data_diff/cross-database_diffing/#creating-diffs",
             },
             {
               type: "link",
-              label: "Performance considerations",
-              href: "/data_diff/cross-database_diffing/#performance-considerations",
-            },
-            {
-              type: "link",
-              label: "Advanced features",
-              href: "/data_diff/cross-database_diffing/#advanced-features",
+              label: "Optimizing Performance",
+              href: "/data_diff/cross-database_diffing/#optimizing-performance",
             },
           ],
         },
@@ -109,7 +104,7 @@ const sidebars = {
         },
         {
           type: "category",
-          label: "Perfomance Optimization",
+          label: "Optimizing Perfomance",
           link: {
             type: "doc",
             id: "deployment_testing/performance_optimization",
@@ -117,13 +112,13 @@ const sidebars = {
           items: [
             {
               type: "link",
-              label: "Slim diff",
+              label: "Slim Diff",
               href: "/deployment_testing/performance_optimization/#slim-diff",
             },
             {
               type: "link",
-              label: "Custom SQL files",
-              href: "/deployment_testing/performance_optimization/#custom-sql-files",
+              label: "SQL filters",
+              href: "/deployment_testing/performance_optimization/#sql-filters",
             },
           ],
         },
