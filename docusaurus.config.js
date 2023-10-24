@@ -66,8 +66,18 @@ const config = {
           // height: 32,
         },
         items: [
-          {type: 'doc', docId: 'intro', label: 'Documentation', position: 'left'},
-          {type: 'docSidebar', sidebarId: 'references', label: 'API Reference', position: 'left'},
+          {
+            type: "doc",
+            docId: "intro",
+            label: "Documentation",
+            position: "left",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "references",
+            label: "API Reference",
+            position: "left",
+          },
           { type: "search", position: "right" },
           //  {type: 'docSidebar', sidebarId: 'reference', label: 'API Reference', position: 'left'},
           // {type: 'doc', docId: 'reference', label: 'API Reference', position: 'left'},
@@ -243,14 +253,18 @@ const config = {
             ],
           },
           {
+            to: "/reference/cloud/datafold-sdk",
+            from: [
+              "/api/content/datafold-sdk",
+              "/guides/ci_guides/datafold-sdk",
+            ],
+          },
+          {
             to: "/integrations/orchestrators/custom_integrations",
             from: [
-              "/reference/cloud/datafold-sdk",
               "/integrations/orchestration/datafold_sdk/prerequisites",
               "/integrations/orchestration/datafold_sdk/configuration",
               "/integrations/orchestration/datafold_sdk/usage",
-              "/api/content/datafold-sdk",
-              "/guides/ci_guides/datafold-sdk",
               "/guides/ci_guides/datafold-sdk/uploading_dbt_artifacts",
             ],
           },
@@ -290,7 +304,7 @@ const config = {
             ],
           },
           {
-            to: "/integrations/code_repositories/github_vpc",
+            to: "/integrations/code_repositories/github",
             from: [
               "/enterprise_accounts/custom_integrations/github_vpc",
               "/on-prem/content/github_on-prem",
@@ -327,10 +341,10 @@ const config = {
             to: "/support",
             from: "/support/grant_access_for_troubleshooting",
           },
-          // {
-          //   to: "/reference/cloud/rest_api",
-          //   from: "/api/content/rest_api",
-          // },
+          {
+            to: "/reference/cloud/rest_api",
+            from: "/api/content/rest_api",
+          },
           // {
           //   to: "/reference/cloud/graphql",
           //   from: "/api/content/graphql",
@@ -347,26 +361,16 @@ const config = {
             ],
           },
           {
-            to: "/",
+            to: "/reference/open_source/cli",
             from: [
               "/guides/os_data_diff",
               "/os_diff/how_to_install",
               "/os_diff/databases_we_support",
               "/os_diff/how_to_use/how_to_use_with_command_line",
-            ],
-          },
-          {
-            to: "/cli",
-            from: [
-              "/reference/open_source/cli",
               "/os_diff/how_to_use/how_to_use_with_toml",
               "/os_diff/how_to_use/options",
             ],
-          },
-          //       // {
-          //       //   to: "/reference/cloud/rest_api",
-          //       //   from: ["/api/api-overview"],
-          //       // },
+          }
         ],
       },
     ],
