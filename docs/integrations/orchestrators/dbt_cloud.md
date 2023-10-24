@@ -13,20 +13,16 @@ You will need a dbt **Team** account or higher to access the dbt Cloud API that 
 ## Prerequisites
 
 ### Set up dbt Cloud CI
-
-In dbt Cloud, [set up dbt Cloud CI](https://docs.getdbt.com/docs/deploy/ci-jobs#set-up-ci-jobs) so that your Pull Request job runs when you open or update a Pull Request. This job will provide Datafold information about the changes included in the PR.
-
-![](../../../../../static/img/dbt_cloud_pr_job.png) 
+In dbt Cloud, [set up dbt Cloud CI](https://docs.getdbt.com/docs/deploy/cloud-ci-job) so that your Pull Request job runs when you open or update a Pull Request. This job will provide Datafold information about the changes included in the PR.
 
 ### Create an Artifacts Job in dbt Cloud
-
 The Artifacts job generates production `manifest.json` on a scheduled basis, giving Datafold information about the state of production. The simplest method is to set up a dbt Cloud job that executes the `dbt ls` command on an hourly basis.
 
 > Note: `dbt ls` is preferred over `dbt compile` as it runs faster and data diffing does not require fully compiled models to work.
 
 Example dbt Cloud artifact job settings and successful run:
 
-![](../../../static/img/dbt_cloud_artifacts_job_settings.png) 
+![](../../../static/img/dbt_cloud_artifacts_job.png) 
 ![](../../../static/img/dbt_ls_artifacts_job_example.png) 
 
 <details>
