@@ -1,37 +1,36 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Datafold',
-  tagline: 'The fastest way to validate dbt model changes in development & deployment',
-  url: 'https://docs.datafold.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  title: "Datafold",
+  tagline: "Automated testing for data engineers",
+  url: "https://docs.datafold.com",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
   customFields: {
-    image: 'img/logo_with_text.svg',
+    image: "img/logo_with_text.svg",
   },
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/datafold/datafold-docs/tree/main/',
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
+          editUrl: "https://github.com/datafold/datafold-docs/tree/main/",
         },
         // To add blog, change to true and uncomment the block below
         blog: false,
@@ -43,10 +42,10 @@ const config = {
         //     'https://github.com/datafold/datafold-docs/tree/main/',
         // },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
         gtag: {
-          trackingID: 'G-Y2WJ1FSBEC',
+          trackingID: "G-Y2WJ1FSBEC",
           anonymizeIP: true,
         },
       }),
@@ -60,16 +59,28 @@ const config = {
         hideOnScroll: false,
         // title: 'Datafold', // replace title with logo
         logo: {
-          alt: '',
-          src: 'img/logo_with_text.svg',
-          srcDark: 'img/logo_with_text.svg',
+          alt: "",
+          src: "img/logo_with_text.svg",
+          srcDark: "img/logo_with_text.svg",
           // width: 32,
           // height: 32,
         },
         items: [
-          {type: 'doc', docId: 'getting_started', label: 'Getting Started', position: 'left'},
-          {type: 'docSidebar', sidebarId: 'guides', label: 'Guides', position: 'left'},
-          {type: 'docSidebar', sidebarId: 'references', label: 'Reference', position: 'left'},
+          {
+            type: "doc",
+            docId: "intro",
+            label: "Documentation",
+            position: "left",
+          },
+          {
+            type: "docSidebar",
+            sidebarId: "references",
+            label: "API Reference",
+            position: "left",
+          },
+          { type: "search", position: "right" },
+          //  {type: 'docSidebar', sidebarId: 'reference', label: 'API Reference', position: 'left'},
+          // {type: 'doc', docId: 'reference', label: 'API Reference', position: 'left'},
           // {type: 'docSidebar', sidebarId: 'api', label: 'APIs', position: 'left'},
           // {to: '/blog', label: 'Blog', position: 'left'}, // remove to turn on blog
           // {
@@ -129,209 +140,241 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-    plugins: [
-      [
-        '@docusaurus/plugin-client-redirects',
-        {
-          redirects: [
-            {
-              to: '/',
-              from: '/features/data_diff',
-            },
-            {
-              to: '/development_testing/open_source',
-              from: '/quickstart_guide',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources',
-              from: '/integrations/data_warehouses/dw_overview',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/snowflake',
-              from: '/integrations/data_warehouses/content/snowflake',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/bigquery',
-              from: '/integrations/data_warehouses/content/bigquery',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/redshift',
-              from: '/integrations/data_warehouses/content/redshift',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/databricks',
-              from: '/integrations/data_warehouses/content/databricks',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_sources/postgres',
-              from: [
-                '/category/postgresql', 
-                '/integrations/data_warehouses/content/postgres/', 
-                '/integrations/data_warehouses/content/postgres/postgres_aurora'
-              ],
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitHub',
-              from: '/integrations/git/github',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitHub',
-              from: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitHub'
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitLab',
-              from: '/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitLab'
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control',
-              from: '/deployment_testing/team_cloud/getting_started_for_customers/source_control'
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitLab',
-              from: '/integrations/git/gitlab',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud',
-              from: [
-                '/integrations/orchestration/dbt_cloud/prerequisites', 
-                '/integrations/orchestration/dbt_cloud/configuration'
-              ],
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core',
-              from: [
-                '/integrations/orchestration/dbt_core/prerequisites', 
-                '/integrations/orchestration/dbt_core/connection', 
-                '/integrations/orchestration/dbt_core/configuration'
-              ],
-            },
-            {
-              to: '/guides/dbt_advanced_configs',
-              from: '/integrations/orchestration/dbt_adv_config',
-            },
-            {
-              to: '/reference/cloud/datafold-sdk',
-              from: [
-                '/integrations/orchestration/datafold_sdk/prerequisites', 
-                '/integrations/orchestration/datafold_sdk/configuration', 
-                '/integrations/orchestration/datafold_sdk/usage', 
-                '/api/content/datafold-sdk', 
-                '/guides/ci_guides/datafold-sdk', 
-                '/guides/ci_guides/datafold-sdk/uploading_dbt_artifacts'
-              ],
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_apps/hightouch',
-              from: '/integrations/data_apps/hightouch',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_apps/looker',
-              from: '/integrations/data_apps/looker',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/data_apps/mode',
-              from: '/integrations/data_apps/mode',
-            },
-            {
-              to: '/enterprise_accounts/vpc_deployments/aws',
-              from: '/on-prem/content/vpcs/aws',
-            },
-            {
-              to: '/enterprise_accounts/vpc_deployments/gcp',
-              from: '/on-prem/content/vpcs/gcp',
-            },
-            {
-              to: '/enterprise_accounts/custom_integrations/github_vpc',
-              from: '/on-prem/content/github_on-prem',
-            },
-            {
-              to: '/enterprise_accounts/custom_integrations/slack_vpc',
-              from: '/on-prem/content/slack_on-prem',
-            },
-            {
-              to: '/enterprise_accounts/sso/google_oauth',
-              from: '/sso/google_oauth',
-            },
-            {
-              to: '/enterprise_accounts/sso/okta',
-              from: '/sso/okta',
-            },
-            {
-              to: '/enterprise_accounts/sso/saml',
-              from: '/sso/saml',
-            },
-            {
-              to: '/security',
-              from: [
-                '/security/gdpr', 
-                '/security/ip_whitelisting'
-              ],
-            },
-            {
-              to: '/support',
-              from: '/support/grant_access_for_troubleshooting',
-            },
-            {
-              to: '/reference/cloud/rest_api',
-              from: '/api/content/rest_api',
-            },
-            {
-              to: '/reference/cloud/graphql',
-              from: '/api/content/graphql',
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core',
-              from: '/guides/ci/cd',
-            },
-            {
-              to: '/guides/slim_diff',
-              from: '/guides/ci_guides/slim_diff',
-            },
-            {
-              to: '/development_testing/open_source',
-              from: '/os_diff/dbt_integration',
-            },
-            {
-              to: '/guides/datafold-vs-code-extension',
-              from: '/guides/vs_code_extension',
-            },
-            {
-              to: '/guides/os_data_diff',
-              from: [
-                '/os_diff/how_to_install', 
-                '/os_diff/databases_we_support', 
-                '/os_diff/how_to_use/how_to_use_with_command_line'
-              ],
-            },
-            {
-              to: '/reference/open_source/cli',
-              from: [
-                '/os_diff/how_to_use/how_to_use_with_toml', 
-                '/os_diff/how_to_use/options'
-              ],
-            },
-            {
-              to: '/reference/cloud/rest_api',
-              from: [
-                '/api/api-overview'
-              ],
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud',
-              from: [
-                '/guides/ci_guides/dbt_cloud'
-              ],
-            },
-            {
-              to: '/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core',
-              from: [
-                '/guides/ci_guides/dbt_core'
-              ],
-            },
-          ],
-        },
-      ],
+  plugins: [
+    ["@cmfcmf/docusaurus-search-local", { indexBlog: false }],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/",
+            from: "/features/data_diff",
+          },
+          {
+            to: "/",
+            from: [
+              "/quickstart_guide",
+              "/development_testing/open_source",
+              "/os_diff/dbt_integration",
+            ],
+          },
+          {
+            to: "/integrations/databases",
+            from: [
+              "/integrations/data_warehouses/dw_overview",
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_sources",
+            ],
+          },
+          {
+            to: "/integrations/databases/snowflake",
+            from: [
+              "/integrations/data_warehouses/content/snowflake",
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/snowflake",
+            ],
+          },
+          {
+            to: "/integrations/databases/bigquery",
+            from: [
+              "/integrations/data_warehouses/content/bigquery",
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/bigquery",
+            ],
+          },
+          {
+            to: "/integrations/databases/redshift",
+            from: [
+              "/integrations/data_warehouses/content/redshift",
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/redshift",
+            ],
+          },
+          {
+            to: "/integrations/databases/databricks",
+            from: [
+              "/integrations/data_warehouses/content/databricks",
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/databricks",
+            ],
+          },
+          {
+            to: "/integrations/databases/postgresql",
+            from: [
+              "/category/postgresql",
+              "/integrations/data_warehouses/content/postgres/",
+              "/integrations/data_warehouses/content/postgres/postgres_aurora",
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/postgres",
+            ],
+          },
+          {
+            to: "/integrations/code_repositories/github",
+            from: [
+              "/integrations/git/github",
+              "/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitHub",
+              "/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitHub",
+            ],
+          },
+          {
+            to: "/integrations/code_repositories/gitlab",
+            from: [
+              "/integrations/git/gitlab",
+              "/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitLab",
+              "/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitLab",
+            ],
+          },
+          {
+            to: "/integrations/code_repositories",
+            from: [
+              "/deployment_testing/team_cloud/getting_started_for_customers/source_control",
+              "/deployment_testing/team_cloud/getting_started_for_customers/version_control",
+            ],
+          },
+          {
+            to: "/integrations/orchestrators/dbt_cloud",
+            from: [
+              "/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud",
+              "/integrations/orchestration/dbt_cloud/prerequisites",
+              "/integrations/orchestration/dbt_cloud/configuration",
+              "/guides/ci_guides/dbt_cloud",
+            ],
+          },
+          {
+            to: "/integrations/orchestrators/dbt_core",
+            from: [
+              "/guides/ci/cd",
+              "/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core",
+              "/integrations/orchestration/dbt_core/prerequisites",
+              "/integrations/orchestration/dbt_core/connection",
+              "/integrations/orchestration/dbt_core/configuration",
+              "/guides/ci_guides/dbt_core",
+            ],
+          },
+          {
+            to: "/deployment_testing/best_practices",
+            from: [
+              "/guides/dbt_advanced_configs",
+              "/integrations/orchestration/dbt_adv_config",
+            ],
+          },
+          {
+            to: "/reference/cloud/datafold-sdk",
+            from: [
+              "/api/content/datafold-sdk",
+              "/guides/ci_guides/datafold-sdk",
+            ],
+          },
+          {
+            to: "/integrations/orchestrators/custom_integrations",
+            from: [
+              "/integrations/orchestration/datafold_sdk/prerequisites",
+              "/integrations/orchestration/datafold_sdk/configuration",
+              "/integrations/orchestration/datafold_sdk/usage",
+              "/guides/ci_guides/datafold-sdk/uploading_dbt_artifacts",
+            ],
+          },
+          {
+            to: "/integrations/bi_data_apps/hightouch",
+            from: [
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_apps/hightouch",
+              "/integrations/data_apps/hightouch",
+            ],
+          },
+          {
+            to: "/integrations/bi_data_apps/looker",
+            from: [
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_apps/looker",
+              "/integrations/data_apps/looker",
+            ],
+          },
+          {
+            to: "/integrations/bi_data_apps/mode",
+            from: [
+              "/deployment_testing/team_cloud/getting_started_for_customers/data_apps/mode",
+              "/integrations/data_apps/mode",
+            ],
+          },
+          {
+            to: "/datafold_deployment/vpc_deployment/aws",
+            from: [
+              "/enterprise_accounts/vpc_deployments/aws",
+              "/on-prem/content/vpcs/aws",
+            ],
+          },
+          {
+            to: "/datafold_deployment/vpc_deployment/gcp",
+            from: [
+              "/enterprise_accounts/vpc_deployments/gcp",
+              "/on-prem/content/vpcs/gcp",
+            ],
+          },
+          {
+            to: "/integrations/code_repositories/github",
+            from: [
+              "/enterprise_accounts/custom_integrations/github_vpc",
+              "/on-prem/content/github_on-prem",
+            ],
+          },
+          {
+            // There's no dedicated page or this contents any more - redirecting to main
+            to: "/",
+            from: [
+              "/enterprise_accounts/custom_integrations/slack_vpc",
+              "/on-prem/content/slack_on-prem",
+            ],
+          },
+          {
+            to: "/security/single_sign-on/google_oauth",
+            from: [
+              "/enterprise_accounts/sso/google_oauth",
+              "/sso/google_oauth",
+            ],
+          },
+          {
+            to: "/security/single_sign-on/okta",
+            from: ["/enterprise_accounts/sso/okta", "/sso/okta"],
+          },
+          {
+            to: "/security/single_sign-on/saml",
+            from: ["/enterprise_accounts/sso/saml", "/sso/saml"],
+          },
+          {
+            to: "/security/securing_connections",
+            from: ["/security/gdpr"],
+          },
+          {
+            to: "/support",
+            from: "/support/grant_access_for_troubleshooting",
+          },
+          {
+            to: "/reference/cloud/rest_api",
+            from: "/api/content/rest_api",
+          },
+          // {
+          //   to: "/reference/cloud/graphql",
+          //   from: "/api/content/graphql",
+          // },
+          {
+            to: "/deployment_testing/performance_optimization",
+            from: ["/guides/slim_diff", "/guides/ci_guides/slim_diff"],
+          },
+          {
+            to: "/development_testing/vs_code_extension",
+            from: [
+              "/guides/datafold-vs-code-extension",
+              "/guides/vs_code_extension",
+            ],
+          },
+          {
+            to: "/reference/open_source/cli",
+            from: [
+              "/guides/os_data_diff",
+              "/os_diff/how_to_install",
+              "/os_diff/databases_we_support",
+              "/os_diff/how_to_use/how_to_use_with_command_line",
+              "/os_diff/how_to_use/how_to_use_with_toml",
+              "/os_diff/how_to_use/options",
+            ],
+          }
+        ],
+      },
     ],
+  ],
 };
 
 module.exports = config;
