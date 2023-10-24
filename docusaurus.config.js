@@ -320,7 +320,7 @@ const config = {
             from: ["/enterprise_accounts/sso/saml", "/sso/saml"],
           },
           {
-            to: "/security/ip_whitelisting",
+            to: "/security/securing_connections",
             from: ["/security/gdpr"],
           },
           {
