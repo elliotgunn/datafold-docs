@@ -13,7 +13,7 @@ hide_table_of_contents: true
 
 ## Getting Started with Deployment Testing
 
-1. Connect your [Data Source](/connections/databases)
-2. Integrate with [Version Control](/connections/code_repositories)
-3. Integrate with [dbt Core/Cloud](/connections/orchestrators)
-4. [Optional] Connect [Data Apps](/connections/bi_data_apps)
+1. Connect your [Data Source](/integrations/databases)
+2. Integrate with [Version Control](/integrations/code_repositories)
+3. Integrate with [dbt Core/Cloud](/integrations/orchestrators)
+4. [Optional] Connect [Data Apps](/integrations/bi_data_apps)

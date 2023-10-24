@@ -21,7 +21,7 @@ Install open source data-diff CLI and configure your dbt project as described [h
 
 #### 3. Configure the data source
 
-To connect to your data warehouse, navigate to **Settings** &rarr; **Integrations** &rarr; **Data warehouses** and click **Add new integration** and follow the prompts. For more information, check out our [Data Source configuration guides](/connections/databases).
+To connect to your data warehouse, navigate to **Settings** &rarr; **Integrations** &rarr; **Data warehouses** and click **Add new integration** and follow the prompts. For more information, check out our [Data Source configuration guides](/integrations/databases).
 
 After you **Test and Save**, add the Data Source ID (which can be found on the Data warehouses page) to your **dbt_project.yml**.
     

@@ -149,42 +149,42 @@ const config = {
             ],
           },
           {
-            to: "/connections/databases",
+            to: "/integrations/databases",
             from: [
               "/integrations/data_warehouses/dw_overview",
               "/deployment_testing/team_cloud/getting_started_for_customers/data_sources",
             ],
           },
           {
-            to: "/connections/databases/snowflake",
+            to: "/integrations/databases/snowflake",
             from: [
               "/integrations/data_warehouses/content/snowflake",
               "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/snowflake",
             ],
           },
           {
-            to: "/connections/databases/bigquery",
+            to: "/integrations/databases/bigquery",
             from: [
               "/integrations/data_warehouses/content/bigquery",
               "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/bigquery",
             ],
           },
           {
-            to: "/connections/databases/redshift",
+            to: "/integrations/databases/redshift",
             from: [
               "/integrations/data_warehouses/content/redshift",
               "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/redshift",
             ],
           },
           {
-            to: "/connections/databases/databricks",
+            to: "/integrations/databases/databricks",
             from: [
               "/integrations/data_warehouses/content/databricks",
               "/deployment_testing/team_cloud/getting_started_for_customers/data_sources/databricks",
             ],
           },
           {
-            to: "/connections/databases/postgresql",
+            to: "/integrations/databases/postgresql",
             from: [
               "/category/postgresql",
               "/integrations/data_warehouses/content/postgres/",
@@ -193,7 +193,7 @@ const config = {
             ],
           },
           {
-            to: "/connections/code_repositories/github",
+            to: "/integrations/code_repositories/github",
             from: [
               "/integrations/git/github",
               "/deployment_testing/team_cloud/getting_started_for_customers/version_control/GitHub",
@@ -201,7 +201,7 @@ const config = {
             ],
           },
           {
-            to: "/connections/code_repositories/gitlab",
+            to: "/integrations/code_repositories/gitlab",
             from: [
               "/integrations/git/gitlab",
               "/deployment_testing/team_cloud/getting_started_for_customers/source_control/GitLab",
@@ -209,14 +209,14 @@ const config = {
             ],
           },
           {
-            to: "/connections/code_repositories",
+            to: "/integrations/code_repositories",
             from: [
               "/deployment_testing/team_cloud/getting_started_for_customers/source_control",
               "/deployment_testing/team_cloud/getting_started_for_customers/version_control",
             ],
           },
           {
-            to: "/connections/orchestrators/dbt_cloud",
+            to: "/integrations/orchestrators/dbt_cloud",
             from: [
               "/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_cloud",
               "/integrations/orchestration/dbt_cloud/prerequisites",
@@ -225,7 +225,7 @@ const config = {
             ],
           },
           {
-            to: "/connections/orchestrators/dbt_core",
+            to: "/integrations/orchestrators/dbt_core",
             from: [
               "/guides/ci/cd",
               "/deployment_testing/team_cloud/getting_started_for_customers/dbt/dbt_core",
@@ -243,7 +243,7 @@ const config = {
             ],
           },
           {
-            to: "/connections/orchestrators/custom_integrations",
+            to: "/integrations/orchestrators/custom_integrations",
             from: [
               "/reference/cloud/datafold-sdk",
               "/integrations/orchestration/datafold_sdk/prerequisites",
@@ -255,21 +255,21 @@ const config = {
             ],
           },
           {
-            to: "/connections/bi_data_apps/hightouch",
+            to: "/integrations/bi_data_apps/hightouch",
             from: [
               "/deployment_testing/team_cloud/getting_started_for_customers/data_apps/hightouch",
               "/integrations/data_apps/hightouch",
             ],
           },
           {
-            to: "/connections/bi_data_apps/looker",
+            to: "/integrations/bi_data_apps/looker",
             from: [
               "/deployment_testing/team_cloud/getting_started_for_customers/data_apps/looker",
               "/integrations/data_apps/looker",
             ],
           },
           {
-            to: "/connections/bi_data_apps/mode",
+            to: "/integrations/bi_data_apps/mode",
             from: [
               "/deployment_testing/team_cloud/getting_started_for_customers/data_apps/mode",
               "/integrations/data_apps/mode",
@@ -290,7 +290,7 @@ const config = {
             ],
           },
           {
-            to: "/connections/code_repositories/github_vpc",
+            to: "/integrations/code_repositories/github_vpc",
             from: [
               "/enterprise_accounts/custom_integrations/github_vpc",
               "/on-prem/content/github_on-prem",

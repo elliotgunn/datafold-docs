@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: GitLab
 description: ""
 #pagination_prev: deployment_testing/team_cloud/getting_started_for_customers/version_control

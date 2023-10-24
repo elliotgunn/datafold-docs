@@ -68,8 +68,8 @@ You will need either a [Service Token](https://docs.getdbt.com/docs/dbt-cloud-ap
 
 ![](../../../static/img/dbt_cloud_basic_settings.png)
 
-- **Repository**: Select a repository that you set up in [the Version Control setup step](/connections/code_repositories).
-- **Data Source**: Select a data source that you set up in [the Data Sources setup step](/connections/databases).
+- **Repository**: Select a repository that you set up in [the Version Control setup step](/integrations/code_repositories).
+- **Data Source**: Select a data source that you set up in [the Data Sources setup step](/integrations/databases).
 - **Name**: This can be anything!
 - **Primary key tag**: This is a text string that you may use to tag primary keys in your dbt project yaml. Note that to avoid the need for tagging, [primary keys can be inferred from dbt uniqueness tests](/deployment_testing/best_practices#primary-key-inference).
 - **Account name**: This will be autofilled using your dbt API key.

@@ -6,7 +6,7 @@
 # Integrate with dbt Core/Cloud
 
 :::note
-To integrate with dbt, first connect a [Data Source](/connections/databases) and integrate with [Version Control](/connections/code_repositories).
+To integrate with dbt, first connect a [Data Source](/integrations/databases) and integrate with [Version Control](/integrations/code_repositories).
 
 Then navigate to **Settings** &rarr; **dbt** and click **Add New Integration**.
 :::
